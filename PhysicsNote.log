@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/W32TeX) (preloaded format=xelatex 2019.7.21)  2 MAR 2020 13:10
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/W32TeX) (preloaded format=xelatex 2019.7.21)  9 MAR 2020 09:12
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -941,27 +941,26 @@ LaTeX Font Info:    Try loading font information for U+rsfs on input line 40.
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 ) [1
 
-] (./PhysicsNote.toc)
-\tf@toc=\write4
-\openout4 = `PhysicsNote.toc'.
-
-LaTeX Font Info:    Font shape `TU/TimesNewRoman(0)/m/sl' in size <10.53937> not available
-(Font)              Font shape `TU/TimesNewRoman(0)/m/it' tried instead on input line 46.
-
-
-LaTeX Font Warning: Font shape `TU/等线(0)/m/sl' undefined
-(Font)              using `TU/等线(0)/m/n' instead on input line 46.
-
-[2]
+] (./PhysicsNote.toc
 
 LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <10.53937> not available
-(Font)              size <10.95> substituted on input line 55.
+(Font)              size <10.95> substituted on input line 2.
 
 
 LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <10.53937> not available
-(Font)              size <10.95> substituted on input line 55.
+(Font)              size <10.95> substituted on input line 2.
 
+LaTeX Font Info:    Font shape `TU/TimesNewRoman(0)/m/sl' in size <10.53937> not available
+(Font)              Font shape `TU/TimesNewRoman(0)/m/it' tried instead on input line 38.
 
+LaTeX Font Warning: Font shape `TU/等线(0)/m/sl' undefined
+(Font)              using `TU/等线(0)/m/n' instead on input line 38.
+
+[2] [3] [4])
+\tf@toc=\write4
+\openout4 = `PhysicsNote.toc'.
+
+ [5]
 Underfull \hbox (badness 10000) in paragraph at lines 55--57
 
  []
@@ -986,7 +985,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 71--73
 
  []
 
-[3]
+[6]
 Underfull \hbox (badness 10000) in paragraph at lines 92--96
 
  []
@@ -1006,7 +1005,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 116--121
 
  []
 
-[4]
+[7]
 Underfull \hbox (badness 10000) in paragraph at lines 130--132
 
  []
@@ -1016,12 +1015,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 141--144
 
  []
 
-[5] [6] [7] [8] [9] [10] [11] [12] [13]
+[8] [9] [10] [11] [12] [13] [14] [15] [16]
 Underfull \hbox (badness 10000) in paragraph at lines 456--470
 
  []
 
-[14] [15] [16] [17] [18]
+[17] [18] [19] [20] [21]
 Underfull \hbox (badness 10000) in paragraph at lines 674--678
 
  []
@@ -1036,12 +1035,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 686--690
 
  []
 
-[19]
+[22]
 Overfull \hbox (18.76086pt too wide) in paragraph at lines 736--736
 [][] 
  []
 
-[20] [21]
+[23] [24]
 Underfull \hbox (badness 10000) in paragraph at lines 799--805
 
  []
@@ -1051,32 +1050,32 @@ Underfull \hbox (badness 10000) in paragraph at lines 807--811
 
  []
 
-[22] [23] [24] [25] [26]
+[25] [26] [27] [28] [29]
 Underfull \hbox (badness 10000) in paragraph at lines 987--988
 
  []
 
-[27]
+[30]
 Underfull \hbox (badness 10000) in paragraph at lines 1020--1021
 
  []
 
-[28]
+[31]
 Underfull \hbox (badness 10000) in paragraph at lines 1060--1064
 
  []
 
-[29] [30]
+[32] [33]
 Underfull \hbox (badness 10000) in paragraph at lines 1138--1142
 
  []
 
-[31] [32] [33]
+[34] [35] [36]
 Underfull \hbox (badness 10000) in paragraph at lines 1282--1284
 
  []
 
-[34] [35] [36] [37]
+[37] [38] [39] [40]
 Underfull \hbox (badness 10000) in paragraph at lines 1408--1416
 
  []
@@ -1086,27 +1085,27 @@ Underfull \hbox (badness 10000) in paragraph at lines 1418--1422
 
  []
 
-[38] [39] [40]
+[41] [42] [43]
 Underfull \hbox (badness 10000) in paragraph at lines 1553--1576
 
  []
 
-[41]
+[44]
 Underfull \hbox (badness 10000) in paragraph at lines 1588--1618
 
  []
 
-[42] [43] [44]
+[45] [46] [47]
 Underfull \hbox (badness 10000) in paragraph at lines 1730--1734
 
  []
 
-[45] [46]
+[48] [49]
 Underfull \hbox (badness 10000) in paragraph at lines 1791--1794
 
  []
 
-[47]
+[50]
 Overfull \hbox (1.30322pt too wide) in paragraph at lines 1861--1861
 [][] 
  []
@@ -1116,22 +1115,22 @@ Overfull \hbox (1.30322pt too wide) in paragraph at lines 1894--1894
 [][] 
  []
 
-[48] [49] [50] [51]
+[51] [52] [53] [54]
 Underfull \hbox (badness 10000) in paragraph at lines 2047--2077
 
  []
 
-[52] [53] [54]
+[55] [56] [57]
 Underfull \hbox (badness 10000) in paragraph at lines 2205--2207
 
  []
 
-[55] [56] [57] [58] [59]
+[58] [59] [60] [61] [62]
 Underfull \hbox (badness 10000) in paragraph at lines 2459--2463
 
  []
 
-[60] [61] [62] [63] [64] [65] [66] [67] [68]
+[63] [64] [65] [66] [67] [68] [69] [70] [71]
 Underfull \hbox (badness 10000) in paragraph at lines 2902--2906
 
  []
@@ -1141,12 +1140,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 2908--2953
 
  []
 
-[69]
+[72]
 Underfull \hbox (badness 10000) in paragraph at lines 2973--2979
 
  []
 
-[70] (./PhysicsNote.aux)
+[73] (./PhysicsNote.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.41063pt have occurred.
@@ -1158,10 +1157,10 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 Here is how much of TeX's memory you used:
  36873 strings out of 492922
  883819 string characters out of 6136751
- 1019615 words of memory out of 5000000
+ 1019614 words of memory out of 5000000
  40442 multiletter control sequences out of 15000+600000
  540131 words of font info for 103 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  55i,18n,79p,456b,1001s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on PhysicsNote.pdf (70 pages).
+Output written on PhysicsNote.pdf (73 pages).
