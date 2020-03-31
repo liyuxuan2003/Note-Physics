@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/W32TeX) (preloaded format=xelatex 2019.7.21)  26 MAR 2020 22:42
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/W32TeX) (preloaded format=xelatex 2019.7.21)  31 MAR 2020 12:04
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1172,7 +1172,22 @@ Underfull \hbox (badness 10000) in paragraph at lines 3174--3178
 
  []
 
-[77] (./PhysicsNote.aux)
+[77]
+Underfull \hbox (badness 10000) in paragraph at lines 3187--3196
+
+ []
+
+[78] [79]
+Underfull \hbox (badness 10000) in paragraph at lines 3257--3261
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3263--3279
+
+ []
+
+[80] [81] [82] (./PhysicsNote.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.41063pt have occurred.
@@ -1184,10 +1199,10 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 Here is how much of TeX's memory you used:
  36981 strings out of 492922
  886086 string characters out of 6136751
- 1019353 words of memory out of 5000000
+ 1019355 words of memory out of 5000000
  40537 multiletter control sequences out of 15000+600000
  542128 words of font info for 112 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  55i,18n,79p,456b,1001s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on PhysicsNote.pdf (77 pages).
+Output written on PhysicsNote.pdf (82 pages).
