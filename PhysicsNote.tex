@@ -664,14 +664,13 @@
 \newpage
 
 \subsection{匀速圆周运动}
-
     对于匀速圆周运动，其线速度$v$为常数。\\[4mm]
     我们会通过以下四个物理量来描述一个匀速圆周运动：\\[3mm]
-    1.线速度$v$描述了物体单位时间内划过的圆弧长度。\\[2mm]
-    2.角速度$\omega$描述了物体单位时间内划过的角度。\\[2mm]
+    1.线速度$v$描述了物体单位时间内划过的弧长。\\[2mm]
+    2.角速度$\omega$描述了物体单位时间内划过的弧度。\\[2mm]
     3.周期$T$描述了物体绕圆一周，即转动$2\pi$所需的时间。\\[2mm]
     4.转速$n$描述了物体一秒内绕圆一周的次数。\\[5mm]
-    很显然，根据弧长公式$l=\alpha\cdot r$，我们可以发现角速度和线速度间仅相差一个半径：
+    根据弧长公式$l=\alpha\cdot r$，我们可以发现角速度和线速度间仅相差一个半径：
     \begin{large}
         \begin{equation*}
             v=\omega\cdot r
@@ -769,25 +768,20 @@
             a=\omega^2\cdot r
         \end{equation*}
     \end{large}\\
-    关于线速度和角速度：
-    \begin{large}
-        \begin{equation*}
-            a=\omega\cdot v
-        \end{equation*}
-    \end{large}\\
     关于周期：
     \begin{large}
         \begin{equation*}
-            a=\frac{4\pi^2}{T^2}
+            a=\frac{4\pi^2}{T^2}\cdot r
         \end{equation*}
-    \end{large}\\[6mm]
+    \end{large}\\
     匀速圆周运动中的加速度始终指向圆心，因此也称为向心加速度，而对应的力则称为向心力。\\[8mm]
     根据牛顿第二定律，向心力的方向始终指向圆心，向心力的大小也可以代入求得。\\[3mm]
     向心力的计算公式：
     \begin{large}
         \begin{align*}
             &F=m\cdot \frac{v^2}{r}\\[5mm]
-            &F=m\cdot\omega^2\cdot r
+            &F=m\cdot\omega^2\cdot r\\[5mm]
+            &F=m\cdot\frac{4\pi^2}{T^2}\cdot r
         \end{align*}
     \end{large}\\
     如果在匀速圆周运动中，向心力小于应有值，物体的运动轨迹将会偏向圆心。\\[3mm]
@@ -849,28 +843,6 @@
     我们应当用$m_1$代表地球质量，
     而用$m_2$代表宇宙飞船的质量。
 
-\subsubsection{引力和重力}
-    我们使用地球的质量和半径数据作为参数：\vspace{5pt}
-    \setcounter{equation}{0}
-    \begin{align}
-        r=6.37\times 10^6~\text{m}\qquad m_1=5.97\times 10^{24}~\text{kg} \qquad m_2=1~\text{kg}
-    \end{align}\\
-    由引力公式可得：
-    \begin{align}
-        F&=G\cdot\frac{m_1\cdot m_2}{r^2}\\[4mm]
-        &=6.67\times 10^{-11}\times\frac{5.97\times 10^{24}\times 1}{~\left(6.37\times 10^{6}\right)^2~}\\[4mm]
-        &=9.8~\text{N}
-    \end{align}\\
-    由重力公式可得：
-    \begin{align}
-        G&=m\cdot g\\[2mm]
-        &=1\times 9.8\\[2mm]
-        &=9.8~\text{N}
-    \end{align}\\
-    由此可见，重力的本质是引力在地球附近的近似。
-    
-\newpage
-
 \subsection{引力场强}
     引力场强代表了单位质量的物体在引力场中特定位置所受到的引力。\\[3mm]
     引力场强定义式：\vspace{3pt}
@@ -885,26 +857,16 @@
             E=\frac{G\cdot m_{1}}{{r}^{2}}       
         \end{equation*}
     \end{large}\\
-    引力场强单位：N / kg\vspace{5pt}
+    引力场强单位：N / kg
 
 \subsubsection{引力场强和重力加速度}
-    我们使用地球的质量和半径数据作为参数：\vspace{5pt}
+    我们使用地球的质量$m_1=5.97\times 10^{24}~\text{kg}$和半径$r=6.37\times 10^6~\text{m}$数据作为参数：\vspace{5pt}
     \setcounter{equation}{0}
     \begin{align}
-        r=6.37\times 10^6~\text{m}\qquad m_1=5.97\times 10^{24}~\text{kg}
-    \end{align}\\
-    由引力场强公式可得：
-    \begin{align}
-        E&=\frac{G\cdot m_1}{r^2}\\[4mm]
-        &=6.67\times 10^{-11}\times\frac{5.97\times 10^{24}}{~\left(6.37\times 10^{6}\right)^2~}\\[4mm]
-        &=9.8~\text{N/kg}
-    \end{align}\\
-    我们已经知道重力加速度的取值：
-    \begin{align}
-        g=9.8~\text{N/kg}
+        E&=6.67\times 10^{-11}\times\frac{5.97\times 10^{24}}{~\left(6.37\times 10^{6}\right)^2~}=9.8~\text{N/kg}
     \end{align}\\
     由此可见，重力加速度的本质是引力场强在地球附近的近似。\\[3mm]
-    同时我们也可以发现，引力场强的单位N/kg和加速度的单位m/s$^2$是完全等价的。
+    同时我们可以发现，引力场强的单位N/kg和重力加速度的单位m/s$^2$是完全等价的。
 
 \newpage
         
@@ -953,7 +915,152 @@
             \varphi=\frac{G\cdot m_{1}}{r}
         \end{equation*}
     \end{large}\\
-    引力势单位：J / kg
+    引力势单位：J / kg\\
+
+\subsection{万有引力定律的推导}
+    为了便于讨论，我们以地球（质量$m_1$）绕太阳（质量$m_2$）旋转为背景，推导万有引力定律。\\[3mm]
+    由于太阳系行星的轨道偏心率均很小，所以我们可以将其视作匀速圆周运动。\\[5mm]
+    根据牛顿第二定律可求得地球所受的向心力：
+    \setcounter{equation}{0}
+    \begin{align}
+        F_2=m_2\cdot a
+    \end{align}\\
+    代入向心加速度公式（$a=\dfrac{4\pi^2}{T^2}\cdot r$）：
+    \begin{align}
+        F_2
+        &=m_2\cdot\frac{4\pi^2}{T^2}\cdot r\\[3mm]
+        &=\frac{4\pi^2\cdot m_2\cdot r}{T^2}
+    \end{align}\\
+    代入开普勒第三定律（$k=\dfrac{R^3}{T^2}$）：
+    \begin{align}
+        F_2
+        &=\frac{4\pi^2\cdot m_2\cdot r\cdot k}{r^3}\\[3mm]
+        &=\frac{4\pi^2\cdot m_2\cdot k}{r^2}
+    \end{align}\\
+    至此说明了万有引力和距离的平方成反比。
+
+\newpage
+
+    定义以下代换变量：
+    \begin{align}
+        \mu_1=4\pi^2\cdot k
+    \end{align}\\
+    由此可以推出地球受到（来自于太阳）的引力：
+    \begin{align}
+        F_2=\mu_1\cdot\frac{m_2}{r^2}
+    \end{align}\\
+    类似可以推出太阳受到（来自于地球）的引力：
+    \begin{align}
+        F_1=\mu_2\cdot\frac{m_1}{r^2}
+    \end{align}\\
+    在上述两个式子中，变量$\mu_1$称为太阳的高斯常数，变量$\mu_2$称为地球的高斯常数。\\[8mm]
+    然而地球受到的引力$F_1$和太阳$F_2$受到的引力互为一对作用力和反作用力。\\[3mm]
+    根据牛顿第三定律：
+    \begin{align}
+        F_1=F_2
+    \end{align}\\
+    分别代入上述结论可得：
+    \begin{align}
+        &\mu_1\cdot\frac{m_2}{r^2}=\mu_2\cdot\frac{m_1}{r^2}\\[3mm]
+        &\mu_1\cdot m_2=\mu_2\cdot m_1
+    \end{align}\\
+    变形引入代换变量：
+    \begin{align}
+        G=\frac{\mu_1}{m_1}=\frac{\mu_2}{m_2}
+    \end{align}
+    将代换变量代入上述结论可得：
+    \begin{align}
+        F_1=F_2=G\cdot\frac{m_1\cdot m_2}{r^2}
+    \end{align}\\
+    至此说明了万有引力和质量的乘积成正比。
+
+\newpage
+
+\subsection{万有引力对天体的测量}
+    通过万有引力定律，我们可以间接测量未知天体的质量和密度。\\[3mm]
+    从引力场强的角度考虑：
+    \setcounter{equation}{0}
+    \begin{align}
+        &E=\frac{G\cdot m}{r^2}
+    \end{align}\\
+    从向心加速度的角度考虑：
+    \begin{align}
+        &E=\frac{4\pi^2}{T^2}\cdot r
+    \end{align}
+
+\subsubsection{对天体质量的测定}
+    联立两者可得：
+    \begin{align}
+        &\frac{G\cdot m}{r^2}=\frac{4\pi^2}{T^2}\cdot r\\[3mm]
+        &m=\frac{4\cdot\pi^2\cdot r^3}{G\cdot T^2}
+    \end{align}
+    天体质量的测定方法：
+    \begin{large}
+        \begin{equation*}
+            m=\frac{4\cdot\pi^2\cdot r^3}{G\cdot T^2}
+        \end{equation*}
+    \end{large}\\
+    测定天体的质量，只需通过天文观察得到环绕其的任意天体的轨道周期和轨道半径。
+
+\subsubsection{对天体密度的测定}
+    联立两者可得：
+    \begin{align}
+        &\frac{G\cdot m}{r^2}=\frac{4\pi^2}{T^2}\cdot r\\[3mm]
+        &\frac{4}{3}\cdot\frac{G\cdot\rho\cdot\pi\cdot r_0^3}{r^2}=\frac{4\pi^2}{T^2}\cdot r\\[3mm]
+        &\rho=\frac{3\cdot\pi^2\cdot r^3}{G\cdot T^2\cdot\pi\cdot r_0^3}\\[3mm]
+        &\rho=\frac{3\cdot\pi\cdot r^3}{G\cdot T^2}\cdot r_0^3
+    \end{align}\\
+    天体密度的测定方法：
+    \begin{large}
+        \begin{equation*}
+            \rho=\frac{3\cdot\pi\cdot r^3}{G\cdot T^2}\cdot r_0^3
+        \end{equation*}
+    \end{large}\\
+    测定天体的密度，只需通过天文观察得到天体半径和环绕其的任意天体的轨道周期和轨道半径。
+
+\newpage
+
+\subsection{万有引力对轨道速度的计算}
+    通过万有引力定律，我们可以计算绕天体运行的圆周轨道上的轨道速度。\\[3mm]
+    从引力场强的角度考虑：
+    \setcounter{equation}{0}
+    \begin{align}
+        &E=\frac{G\cdot m}{r^2}
+    \end{align}\\
+    从向心加速度的线速度公式考虑：
+    \begin{align}
+        &E=\frac{v^2}{r}
+    \end{align}\\
+    从向心加速度的角速度公式考虑：
+    \begin{align}
+        &E=\omega^2\cdot r
+    \end{align}
+
+\subsubsection{对线速度的计算}
+    联立两者可得：
+    \begin{align}
+        &\frac{G\cdot m}{r^2}=\frac{v^2}{r}\\[3mm]
+        &v^2=\frac{G\cdot m}{r}
+    \end{align}\\
+    轨道线速度的计算公式：
+    \begin{large}
+        \begin{equation*}
+            v=\sqrt{\frac{G\cdot m}{r}}
+        \end{equation*}
+    \end{large}
+
+\subsubsection{对角速度的计算}
+    联立两者可得：
+    \begin{align}
+        &\frac{G\cdot m}{r^2}=\omega^2\cdot r\\[3mm]
+        &\omega^2=\frac{G\cdot m}{r^3}
+    \end{align}\\
+    轨道角速度的计算公式：
+    \begin{large}
+        \begin{equation*}
+            \omega=\sqrt{\frac{G\cdot m}{r^3}}
+        \end{equation*}
+    \end{large}
 
 \newpage
 
