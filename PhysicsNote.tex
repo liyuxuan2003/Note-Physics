@@ -1008,12 +1008,12 @@
         &\frac{G\cdot m}{r^2}=\frac{4\pi^2}{T^2}\cdot r\\[3mm]
         &\frac{4}{3}\cdot\frac{G\cdot\rho\cdot\pi\cdot r_0^3}{r^2}=\frac{4\pi^2}{T^2}\cdot r\\[3mm]
         &\rho=\frac{3\cdot\pi^2\cdot r^3}{G\cdot T^2\cdot\pi\cdot r_0^3}\\[3mm]
-        &\rho=\frac{3\cdot\pi\cdot r^3}{G\cdot T^2}\cdot r_0^3
+        &\rho=\frac{3\cdot\pi}{G\cdot T^2}\cdot\frac{r^3}{r_0^3} 
     \end{align}\\
     天体密度的测定方法：
     \begin{large}
         \begin{equation*}
-            \rho=\frac{3\cdot\pi\cdot r^3}{G\cdot T^2}\cdot r_0^3
+            \rho=\frac{3\cdot\pi}{G\cdot T^2}\cdot\frac{r^3}{r_0^3} 
         \end{equation*}
     \end{large}\\
     测定天体的密度，只需通过天文观察得到天体半径和环绕其的任意天体的轨道周期和轨道半径。
@@ -1158,16 +1158,16 @@
             a=-A\cdot\omega^2\cdot\cos{(\omega\cdot t+\varphi)}
         \end{equation*}
     \end{large}\\[2mm]
-    特别的，当$\big|\cos{(\omega\cdot t+\varphi)}\big|=0$，显然$\big|\sin{(\omega\cdot t+\varphi)}\big|=1$，此时我们有：
+    特别的当满足$\cos{(\omega\cdot t+\varphi)}=0$时：
     \begin{large}
         \begin{equation*}
-            |s|=0\qquad |v|=v_{max}\qquad |a|=0
+            s=s_{min}~~~~~~v=v_{max}~~~~~~a=a_{min}
         \end{equation*}
     \end{large}\\
-    特别的，当$\big|\cos{(\omega\cdot t+\varphi)}\big|=1$，显然$\big|\sin{(\omega\cdot t+\varphi)}\big|=0$，此时我们有：
+    特别的当满足$\sin{(\omega\cdot t+\varphi)}=0$时：
     \begin{large}
         \begin{equation*}
-            |s|=s_{max}\qquad |v|=0\qquad |a|=a_{max}
+            s=s_{max}~~~~~~v=v_{min}~~~~~~a=a_{max}
         \end{equation*}
     \end{large}\\
     简谐振动中，当位移为零时，速度最大，加速度为零。\\[3mm]
@@ -1236,7 +1236,7 @@
             \omega=\sqrt{\frac{K}{m}}
         \end{equation*}
     \end{large}\\
-    频率的计算公式：
+    线频率的计算公式：
     \begin{large}
         \begin{equation*}
             \nu=\frac{1}{2\pi}\cdot\sqrt{\frac{K}{m}}
@@ -1248,8 +1248,10 @@
             T=2\pi\cdot\sqrt{\frac{m}{K}}
         \end{equation*}
     \end{large}\\
-    由此可见，周期$T$，频率$\nu$，角频率$\omega$，均是仅由振动系统决定的物理量。\\[3mm]
-    当对应到具体的简谐运动时，可以通过这组公式推导出角频率，频率，周期的具体表达。\\
+    由此可见，周期$T$，线频率$\nu$，角频率$\omega$，均是由振动系统决定的物理量。\\[3mm]
+    当对应到具体的简谐运动时，可以通过这组公式推导出角频率，线频率，周期的具体表达。\\
+
+\newpage
 
 \subsubsection{简谐运动的振幅和周期}
     简谐运动中，我们将物体振动时的最大位移称为振幅，通常用字母$A$表示。\\[3mm]
@@ -1261,15 +1263,12 @@
             ~~s_0=A\cdot\cos{\varphi}\\
             ~~v_0=-A\cdot\omega\cdot\sin{\varphi}\vspace{1pt}
         \end{cases}
-    \end{align}
-
-\newpage
-
+    \end{align}\\
     如果我们需要求解初相：\vspace{5pt}
     \begin{align}
-        &\frac{v_0}{s_0}=-\omega\cdot\frac{\cos{\varphi}}{\sin{\varphi}}\\[4mm]
-        &\frac{v_0}{s_0}=-\omega\cdot\tan{\varphi}\\[4mm]
-        &\tan{\varphi}=-\frac{v_0}{\omega\cdot s_0}\\[2mm]
+        &\frac{v_0}{s_0}=-\omega\cdot\frac{\cos{\varphi}}{\sin{\varphi}}\\[5mm]
+        &\frac{v_0}{s_0}=-\omega\cdot\tan{\varphi}\\[5mm]
+        &\tan{\varphi}=-\frac{v_0}{\omega\cdot s_0}\\[3mm]
         &~\varphi=\arctan{\left(-\frac{v_0}{\omega\cdot s_0}\right)}
     \end{align}\\
     如果我们需要求解振幅：\vspace{5pt}
@@ -1277,38 +1276,119 @@
         &\begin{cases}
             ~~s_0\,^2=A^2\cdot\cos^2{\varphi}\\
             ~~v_0\,^2=A^2\cdot\omega^2\cdot\sin^2{\varphi}\vspace{1pt}
-        \end{cases}\\[3mm]
+        \end{cases}\\[5mm]
         &\begin{cases}
             ~~s_0\,^2\,=A^2\cdot\cos^2{\varphi}\\[3mm]
             ~~\dfrac{v_0\,^2}{\omega^2}=A^2\cdot\sin^2{\varphi}\vspace{4pt}
-        \end{cases}\\[3mm]
-        &~~\,s_0\,^2+\frac{v_0\,^2}{\omega^2}=A^2\\[3mm]
+        \end{cases}\\[5mm]
+        &~~\,s_0\,^2+\frac{v_0\,^2}{\omega^2}=A^2\\[5mm]
         &~~A=\sqrt{s_0\,^2+\frac{v_0\,^2}{\omega^2}}
     \end{align}\\
+    此时若令初速$v_0=0$则有：
+    \begin{align}
+        A=\sqrt{s_0\,^2}=|s_0|
+    \end{align}\\
+    即物体的初始速度为零时，物体的振幅恰等于其初始位移的绝对值。
+        
+
+\newpage
+
     初相的计算公式：
     \begin{large}
         \begin{equation*}
             \varphi=\arctan{\left(-\frac{v_0}{\omega\cdot s_0}\right)}
         \end{equation*}
     \end{large}\\
-    振幅的计算公式：
+    振幅的计算公式（$v_0\neq 0$）：
     \begin{large}
         \begin{equation*}
             A=\sqrt{s_0\,^2+\frac{v_0\,^2}{\omega^2}}
         \end{equation*}
     \end{large}\\
-    由此可见，初相$\varphi$，振幅$A$，均是由振动系统和初始条件共同决定的物理量。\\[5mm]
-    特别的，如果物体的初始速度为$0$时：
+    振幅的计算公式（$v_0=0$）：
     \begin{large}
         \begin{equation*}
             A=|s_0|
         \end{equation*}
     \end{large}\\
-    即当物体的初始速度为零时，物体的振幅等于其初始位移的绝对值。
+    由此可见，初相$\varphi$，振幅$A$，均是由初始条件决定的物理量。\\[3mm]
 
 \newpage
 
-\subsubsection{弹簧振子的简谐振动动}
+\subsubsection{简谐运动的叠加}
+    此处我们将讨论最为简单的叠加形式，即两个角频率相同的简谐运动的叠加。\\[3mm]
+    很显然，两个简谐运动叠加后的运动仍然是简谐运动，且叠加后角频率仍然是$\omega$。\\[3mm]
+    很显然，两个简谐运动叠加后，其位移为位移之和$s=s_1+s_2$，其速度为速度之和$v=v_1+v_2$。\\[5mm]
+    因此对于如下两个简谐运动：
+    \setcounter{equation}{0}
+    \begin{align}
+        s_1=A_1\cdot\cos{\left(\omega\cdot t+\varphi_1\right)}\\[3mm]
+        s_2=A_2\cdot\cos{\left(\omega\cdot t+\varphi_2\right)}
+    \end{align}\\
+    其叠加后的运动可以表示为：
+    \begin{equation}
+        s=A\cdot\cos{\omega\cdot t+\varphi}
+    \end{equation}\\
+    接下来将分别推导叠加后产生的简谐运动中，振幅$A$的取值，初相$\varphi$的取值。\\[3mm]
+    我们用$s_0$表示叠加后简谐运动的初位移，分别用$s_{01}$和$s_{02}$表示叠加前两个简谐运动的初位移。\\[3mm]
+    我们用$v_0$表示叠加后简谐运动的初速度，分别用$v_{01}$和$v_{02}$表示叠加前两个简谐运动的初速度。\\[6mm]
+    因此叠加后的初始位移可以表示为：
+    \begin{align}
+        s_0=s_{01}+s_{02}=A_1\cdot\cos{\varphi_1}+A_2\cdot\cos{\varphi_2}
+    \end{align}\\
+    因此叠加后的初始速度可以表示为：
+    \begin{align}
+        v_0=v_{01}+v_{02}=-A_1\cdot\omega\cdot\sin{\varphi_1}-A_2\cdot\omega\cdot\sin{\varphi_2}
+    \end{align}\\
+    代入初相的计算公式可得：
+    \begin{align}
+        \varphi
+        &=\arctan{\left(-\frac{v_0}{\omega\cdot s_0}\right)}\\[3mm]
+        &=\arctan{\left[\frac{A_1\cdot\omega\cdot\sin{\varphi_1}+A_2\cdot\omega\cdot\sin{\varphi_2}}{A_1\cdot\omega\cdot\cos{\varphi_1}+A_2\cdot\omega\cdot\cos{t+\varphi_2}}\right]}\\[3mm]
+        &=\arctan{\left[\frac{A_1\cdot\sin{\varphi_1}+A_2\cdot\sin{\varphi_2}}{A_1\cdot\cos{\varphi_1}+A_2\cdot\cos{\varphi_2}}\right]}
+    \end{align}\\
+    简谐运动叠加后的初相：
+    \begin{large}
+        \begin{equation*}
+            \varphi=\arctan{\left[\frac{A_1\cdot\sin{\varphi_1}+A_2\cdot\sin{\varphi_2}}{A_1\cdot\cos{\varphi_1}+A_2\cdot\cos{\varphi_2}}\right]}
+        \end{equation*}
+    \end{large}
+    
+\newpage
+
+    代入振幅的计算公式可得：\vspace{3pt}
+    \begin{align}
+        A
+        &=\sqrt{s_0\,^2+\frac{v_0\,^2}{\omega^2}}\\[3mm]
+        &=\sqrt{\left(A_1\cdot\cos{\varphi_1}+A_2\cdot\cos{\varphi_2}\right)^2+\frac{\left(A_1\cdot\omega\cdot\sin{\varphi_1}+A_2\cdot\omega\cdot\sin{\varphi_2}\right)^2}{\omega^2}}
+    \end{align}\\
+    根号下的第一项可以展开为：
+    \begin{align}
+        A_1^2\cdot\cos^2{\varphi_1}+A_2^2\cdot\cos^2{\varphi_2}+2\cdot A_1\cdot A_2\cdot\cos{\varphi_1}\cdot\cos{\varphi_2}
+    \end{align}\\
+    根号下的第二项可以展开为：
+    \begin{align}
+        A_1^2\cdot\sin^2{\varphi_1}+A_2^2\cdot\sin^2{\varphi_2}+2\cdot A_1\cdot A_2\cdot\sin{\varphi_1}\cdot\sin{\varphi_2}
+    \end{align}\\
+    根据三角的平方关系可得：
+    \begin{align}
+        &A_1^2\cdot\cos^2{\varphi_1}+A_1^2\cdot\sin^2{\varphi_1}=A_1^2\\[3mm]
+        &A_2^2\cdot\cos^2{\varphi_1}+A_2^2\cdot\sin^2{\varphi_1}=A_2^2
+    \end{align}
+    根据余弦的和差公式可得：
+    \begin{align}
+        2\cdot A_1\cdot A_2\cdot(\cos{\varphi_1}\cdot\cos{\varphi_2}+\sin{\varphi_1}\cdot\sin{\varphi_2})=2\cdot A_1\cdot A_2\cdot\cos{(\varphi_1-\varphi_2)}
+    \end{align}\\
+    简谐运动叠加后的振幅：
+    \begin{large}
+        \begin{equation*}
+            A=\sqrt{A_1^2+A_2^2+2\cdot A_1\cdot A_2\cdot\cos{\varphi_1-\varphi_2}}
+        \end{equation*}
+    \end{large}
+
+\newpage
+
+\subsubsection{弹簧振子的简谐振动}
     弹簧振子的物理模型是一个弹簧，一端固定，一端连接一个振子，在水平光滑平面上振动。\\[3mm]
     弹簧振子所受的回复力：
     \setcounter{equation}{0}
@@ -1317,7 +1397,7 @@
             F=-k\cdot s
         \end{equation*}
     \end{large}\\
-    由此我们可以得到弹簧振子的比例系数：
+    由此可以得到弹簧振子的比例系数：
     \begin{equation}
         K=k
     \end{equation}\\
@@ -1333,7 +1413,7 @@
             \omega=\sqrt{\frac{k}{m}}
         \end{equation*}
     \end{large}\\
-    弹簧振子的频率：
+    弹簧振子的线频率：
     \begin{large}
         \begin{equation*}
             \nu=\frac{1}{2\pi}\cdot\sqrt{\frac{k}{m}}
@@ -1344,7 +1424,8 @@
         \begin{equation*}
             T=2\pi\cdot\sqrt{\frac{m}{k}}
         \end{equation*}
-    \end{large}
+    \end{large}\\
+    因此弹簧振子的周期和频率只和振子质量和劲度系数有关，与振动幅度无关。
 
 \newpage
 
@@ -1353,17 +1434,18 @@
     单摆所受的回复力：
     \begin{large}
         \begin{equation*}
-            F=m\cdot g\cdot \sin{\theta}
+            F=-m\cdot g\cdot \sin{\theta}
         \end{equation*}
     \end{large}\\
-    当摆角很小时，我们可以认为弦和弧近似等长：\vspace{5pt}
-    \setcounter{equation}{0}
-    \begin{align}
-        F
-        &=m\cdot g\cdot \frac{s}{l}\\[5mm]
-        &=\frac{m\cdot g}{l}\cdot s
-    \end{align}\\
-    由此我们可以得到单摆的比例系数：\vspace{5pt}
+    单摆所受的近似回复力：
+    \begin{large}
+        \begin{equation*}
+            F=-m\cdot g\cdot \frac{s}{l}
+        \end{equation*}
+    \end{large}\\
+    当摆角很小（$\theta<5^{\circ}$）时，我们可以近似的认为$\theta\approx\sin{\theta}$。\\[3mm]
+    当摆角很小（$\theta<5^{\circ}$）时，我们可以近似的认为$\theta\cdot l\approx s$，即弧和弦等长。\\[5mm]
+    由此可以得到单摆的比例系数：\vspace{5pt}
     \begin{equation}
         K=\frac{m\cdot g}{l}
     \end{equation}\\
@@ -1380,7 +1462,7 @@
             \omega=\sqrt{\frac{g}{l}}
         \end{equation*}
     \end{large}\\
-    单摆的频率：
+    单摆的线频率：
     \begin{large}
         \begin{equation*}
             \nu=\frac{1}{2\pi}\cdot\sqrt{\frac{g}{l}}
@@ -1392,22 +1474,34 @@
             T=2\pi\cdot\sqrt{\frac{l}{g}}
         \end{equation*}
     \end{large}\\
+    因此单摆的周期和频率只和摆线长度和重力常数有关，与摆球质量和摆动幅度无关。
 
 \newpage
 
 \subsection{机械波}
-    机械波：由机械振动产生的波。\\[4mm]
+    机械波指的是由机械振动产生的在弹性介质中传播的波。\\[3mm]
     产生机械波需要同时具备两个条件：\\[3mm]
     1.要有一个作机械振动的物体提供波源。\\[3mm]
-    2.要有能够传播这种机械振动的物质提供介质。\\[4mm]
-    波动是振动状态介质中的传播，介质中的各质点仅在其平衡位置附近振动，而不随波前进。
+    2.要有能够传播这种机械振动的物质提供介质。\\[5mm]
+    波的传播中，介质中的各质点仅在其平衡位置附近振动，而不随波前进。\\[3mm]
+    波的传播中，振动状态以一定速度向前传播，质点中后振动的相较于先振动的存在一个时间差。\\[3mm]
+    由此可见，波动实际上就是振动状态在弹性介质中的传播。\\
 
 \subsubsection{机械波的分类}
     横波：质点的振动方向和波的传递方向垂直，外形特征上具有波峰和波谷。\\[3mm]
-    纵波：质点的振动方向和波的传递方向平行，外形特征上具有稠密和稀疏。\\[4mm]
-    在气体介质中，只能产生纵波。\\[2mm]
-    在液体介质中，只能产生纵波。\\[2mm]
-    在固体介质中，可以产生纵波和横波。
+    纵波：质点的振动方向和波的传递方向平行，外形特征上具有稠密和稀疏。\\[3mm]
+    在气体介质中，只能产生纵波。\\[3mm]
+    在液体介质中，只能产生纵波。\\[3mm]
+    在固体介质中，可以产生纵波和横波。\\
+
+\subsubsection{机械波的概念}
+    为了讨论波的传播情况，我们引入波线波面和波前的概念。\\[3mm]
+    波线指的是波的传播方向所形成的射线。\\[3mm]
+    波面指的是由相位相同的点所连成的面。\\[3mm]
+    波前指的是波在传播过程中位于最前面的那个波面。\\[3mm]
+    显然波的传播实际上就是波前的位置不断向前推进的过程。\\
+
+\newpage
 
 \subsubsection{机械波的特征物理量}
     由于波动实际上是波源的振动状态在介质中的传播过程，所以波动和振动一样，也具有周期性。\\[3mm]
@@ -1421,11 +1515,8 @@
             \lambda=u\cdot T
         \end{equation*}
     \end{large}\\
+    波的周期只与波源振动有关，与介质性质无关。\\[3mm]
     波的波速只与介质性质有关，与波源振动无关。\\[3mm]
-    波的周期只与波源振动有关，与介质性质无关。
-
-\newpage
-
     横波在固体中的传播速度（$G$是切边模量）：
     \begin{large}
         \begin{equation*}
@@ -1444,8 +1535,73 @@
             u=\sqrt{\frac{K}{\rho}}
         \end{equation*}
     \end{large}\\
+    由此可见，机械波的传播速度只和传播介质的性质和密度有关。\\[3mm]
     通常来说，固体的切边模量大于弹性模量，所以地震中横波总是先于纵波到达地面。\\[3mm]
     通常来说，由于波速和密度成反比，所以声波在固体液体气体中的传播速度依次减慢。
+
+\newpage
+
+\subsubsection{平面简谐波的波函数}
+    波函数是关于空间和时间的二元函数，反映了波线上任意一质点在任意一时刻的运动状态。\\[3mm]
+    在平面直角坐标系上，以$Ox$为波线方向，以$Oy$为振动方向，设任意点$A$在$x$轴上。\\[3mm]
+    显然点$O$处的振动方程为：
+    \setcounter{equation}{0}
+    \begin{align}
+        y=A\cdot\cos{\left[\omega\cdot t+\varphi\right]}
+    \end{align}\\
+    由于任意点$A$和原点$O$之间的距离为$x$，因此振动从点$O$传递至点$A$所需的时间为$\dfrac{x}{u}$。\\[3mm]
+    所以任意点$A$在时刻$t$时的振动状态，应相当于原点$O$在时刻$t-\dfrac{x}{u}$时的振动状态。\\[5mm]
+    所以点$B$处的振动方程为：
+    \begin{align}
+        y=A\cdot\cos{\left[\omega\cdot\left(t-\frac{x}{u}\right)+\varphi\right]}
+    \end{align}\\
+    沿$x$轴正方向传播的波动方程：
+    \begin{large}
+        \begin{equation*}
+            y=A\cdot\cos{\left[\omega\cdot\left(t-\frac{x}{u}\right)+\varphi\right]}
+        \end{equation*}
+    \end{large}\\
+    沿$x$轴负方向传播的波动方程：
+    \begin{large}
+        \begin{equation*}
+            y=A\cdot\cos{\left[\omega\cdot\left(t+\frac{x}{u}\right)+\varphi\right]}
+        \end{equation*}
+    \end{large}\\
+    当位移一定即$x=x_1$时，此时的波动方程代表$x_1$点的振动方程，绘制的正弦曲线称为振动图。\\[3mm]
+    当位移一定即$\,t\,=t_1\,$时，此时的波动方程代表$t_1$时的波形状况，绘制的正弦曲线称为波形图。\\[3mm]
+
+\newpage
+
+\subsubsection{平面简谐波的波程差}
+    在时刻$t$时质点$x_1$的相位为：
+    \setcounter{equation}{0}
+    \begin{align}
+        \varphi_1=\omega\cdot\left(t-\frac{x_1}{u}\right)
+    \end{align}\\
+    在时刻$t$时质点$x_2$的相位为：
+    \begin{align}
+        \varphi_2=\omega\cdot\left(t-\frac{x_2}{u}\right)
+    \end{align}\\
+    两点间的相位差可以表示为：
+    \begin{align}
+        \Delta\varphi
+        &=\varphi_2-\varphi_1\\[5mm]
+        &=\omega\cdot\left(t-\frac{x_2}{u}\right)-\omega\cdot\left(t-\frac{x_1}{u}\right)\\[5mm]
+        &=-\omega\cdot\left(\frac{x_2}{u}-\frac{x_1}{u}\right)\\[5mm]
+        &=-\frac{2\pi}{T}\cdot\left(\frac{x_2}{u}-\frac{x_1}{u}\right)\\[5mm]
+        &=-\frac{2\pi\cdot u}{\lambda}\cdot\left(\frac{x_2}{u}-\frac{x_1}{u}\right)\\[5mm]
+        &=-\frac{2\pi}{\lambda}\cdot\left(x_2-x_1\right)
+    \end{align}\\
+    定义波程差$\Delta x=x_2-x_1$：
+    \begin{large}
+        \begin{equation*}
+            \Delta\varphi=-\frac{2\pi}{\lambda}\cdot\Delta x
+        \end{equation*}
+    \end{large}\\
+    该公式描述了一定波长下，波程差和相位差的关系。
+    
+
+\newpage
 
 \subsubsection{波的反射}
     波的反射：波传递到两种介质的分界面上时，波的传播方向调转回到原来的介质中。\\[3mm]
@@ -1478,7 +1634,7 @@
     并且振动增强区域和振动减弱区域互相间隔。
 
 \subsubsection{声波和声强级}
-    声波是一种纵波，频率低于$20$Hz的声波称为次声波，频率高于$20000$Hz的声波称为超声波。\\[3mm]
+    声波是一种纵波，频率低于$20$Hz的声波称为次声波，频率高���$20000$Hz的声波称为超声波。\\[3mm]
     声强衡量了声音的强度，通常用符号$I$表示，单位是W/m$^2$。\\[3mm]
     声强的计算公式：
     \begin{large}
