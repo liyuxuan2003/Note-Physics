@@ -1,12 +1,13 @@
 % !TEX program = xelatex
 \documentclass[UTF8]{ctexart}
 
-\RequirePackage{amsmath}
-\RequirePackage{mhchem}
-
 \RequirePackage{inputenc}
 \RequirePackage{fontspec}
 \RequirePackage{xeCJK}
+
+\RequirePackage{amsmath}
+\RequirePackage{amssymb}
+\RequirePackage{mhchem}
 
 \RequirePackage{tikz}
 \RequirePackage{circuitikz}
@@ -26,6 +27,8 @@
 \setCJKmonofont{等线}
 
 \newcommand*{\dif}{\mathop{}\!\mathrm{d}}
+
+\newcommand{\rnum}[1]{\uppercase\expandafter{\romannumeral #1\relax}}
 
 \usepackage{geometry}
 \geometry
@@ -622,7 +625,7 @@
     动量定理的数学表达：
     \begin{large}
         \begin{equation*}
-            I=P_2-P_2=\Delta t
+            I=P_2-P_2=\Delta P
         \end{equation*}
     \end{large}\\
     上述推导中第四步得出的结论，
@@ -1253,9 +1256,8 @@
 
 \newpage
 
-\subsubsection{简谐运动的振幅和周期}
+\subsubsection{简谐运动的振幅}
     简谐运动中，我们将物体振动时的最大位移称为振幅，通常用字母$A$表示。\\[3mm]
-    简谐运动中，我们将物体初始条件下的相位称为初相，通常用字母$\varphi$表示。\\[5mm]
     如果我们令$t=0$：
     \setcounter{equation}{0}
     \begin{align}
@@ -1264,14 +1266,7 @@
             ~~v_0=-A\cdot\omega\cdot\sin{\varphi}\vspace{1pt}
         \end{cases}
     \end{align}\\
-    如果我们需要求解初相：\vspace{5pt}
-    \begin{align}
-        &\frac{v_0}{s_0}=-\omega\cdot\frac{\cos{\varphi}}{\sin{\varphi}}\\[5mm]
-        &\frac{v_0}{s_0}=-\omega\cdot\tan{\varphi}\\[5mm]
-        &\tan{\varphi}=-\frac{v_0}{\omega\cdot s_0}\\[3mm]
-        &~\varphi=\arctan{\left(-\frac{v_0}{\omega\cdot s_0}\right)}
-    \end{align}\\
-    如果我们需要求解振幅：\vspace{5pt}
+    然后我们可以这样求解振幅：\vspace{5pt}
     \begin{align}
         &\begin{cases}
             ~~s_0\,^2=A^2\cdot\cos^2{\varphi}\\
@@ -1284,21 +1279,6 @@
         &~~\,s_0\,^2+\frac{v_0\,^2}{\omega^2}=A^2\\[5mm]
         &~~A=\sqrt{s_0\,^2+\frac{v_0\,^2}{\omega^2}}
     \end{align}\\
-    此时若令初速$v_0=0$则有：
-    \begin{align}
-        A=\sqrt{s_0\,^2}=|s_0|
-    \end{align}\\
-    即物体的初始速度为零时，物体的振幅恰等于其初始位移的绝对值。
-        
-
-\newpage
-
-    初相的计算公式：
-    \begin{large}
-        \begin{equation*}
-            \varphi=\arctan{\left(-\frac{v_0}{\omega\cdot s_0}\right)}
-        \end{equation*}
-    \end{large}\\
     振幅的计算公式（$v_0\neq 0$）：
     \begin{large}
         \begin{equation*}
@@ -1311,7 +1291,43 @@
             A=|s_0|
         \end{equation*}
     \end{large}\\
-    由此可见，初相$\varphi$，振幅$A$，均是由初始条件决定的物理量。\\[3mm]
+    即物体的初始速度为零时，物体的振幅恰等于其初始位移的绝对值。\\[3mm]
+    由此可见，振幅$A$是由初始条件决定的物理量。\\[3mm]
+
+\newpage
+
+\subsubsection{简谐运动的初相}
+    简谐运动中，我们将物体初始条件下的相位称为初相，通常用字母$\varphi$表示。\\[5mm]
+    如果我们令$t=0$：
+    \setcounter{equation}{0}
+    \begin{align}
+        \begin{cases}
+            ~~s_0=A\cdot\cos{\varphi}\\
+            ~~v_0=-A\cdot\omega\cdot\sin{\varphi}\vspace{1pt}
+        \end{cases}
+    \end{align}\\
+    然后我们可以这样求解初相：\vspace{5pt}
+    \begin{align}
+        &\frac{v_0}{s_0}=-\omega\cdot\frac{\cos{\varphi}}{\sin{\varphi}}\\[5mm]
+        &\frac{v_0}{s_0}=-\omega\cdot\tan{\varphi}\\[5mm]
+        &\tan{\varphi}=-\frac{v_0}{\omega\cdot s_0}\\[3mm]
+        &~\varphi=\arctan{\left(-\frac{v_0}{\omega\cdot s_0}\right)}
+    \end{align}\\
+    初相的计算公式：
+    \begin{large}
+        \begin{equation*}
+            \varphi=\arctan{\left(-\frac{v_0}{\omega\cdot s_0}\right)}
+        \end{equation*}
+    \end{large}\\
+    初相需要满足的额外条件：
+    \begin{large}
+        \begin{equation*}
+            \cos{\varphi}=\frac{s_0}{A}~~~~~~
+            \sin{\varphi}=-\frac{v_0}{A\cdot\omega}
+        \end{equation*}
+    \end{large}\\
+    之所以需要满足额外条件，是因为适用反正切函数得出的有两个可行的值。\\[3mm]
+    由此可见，初相$\varphi$是由初始条件决定的物理量。\\[3mm]
 
 \newpage
 
@@ -1382,9 +1398,10 @@
     简谐运动叠加后的振幅：
     \begin{large}
         \begin{equation*}
-            A=\sqrt{A_1^2+A_2^2+2\cdot A_1\cdot A_2\cdot\cos{\varphi_1-\varphi_2}}
+            A=\sqrt{A_1^2+A_2^2+2\cdot A_1\cdot A_2\cdot\cos{(\varphi_1-\varphi_2)}}
         \end{equation*}
-    \end{large}
+    \end{large}\\
+    由此我们得到了两个角频率相同的简谐运动叠加后的振幅和初相。
 
 \newpage
 
@@ -1403,9 +1420,7 @@
     \end{equation}\\
     代入比例系数可得：
     \begin{align}
-        \omega
-        &=\sqrt{\frac{K}{m}}\\[3mm]
-        &=\sqrt{\frac{k}{m}}
+        &\omega=\sqrt{\frac{K}{m}}=\sqrt{\frac{k}{m}}
     \end{align}\\
     弹簧振子的角频率：
     \begin{large}
@@ -1446,15 +1461,13 @@
     当摆角很小（$\theta<5^{\circ}$）时，我们可以近似的认为$\theta\approx\sin{\theta}$。\\[3mm]
     当摆角很小（$\theta<5^{\circ}$）时，我们可以近似的认为$\theta\cdot l\approx s$，即弧和弦等长。\\[5mm]
     由此可以得到单摆的比例系数：\vspace{5pt}
+    \setcounter{equation}{0}
     \begin{equation}
         K=\frac{m\cdot g}{l}
     \end{equation}\\
     代入比例系数可得：
     \begin{align}
-        \omega
-        &=\sqrt{\frac{K}{m}}\\[5mm]
-        &=\sqrt{\frac{m\cdot g}{m\cdot l}}\\[5mm]
-        &=\sqrt{\frac{g}{l}}
+        \omega=\sqrt{\frac{K}{m}}=\sqrt{\frac{m\cdot g}{m\cdot l}}=\sqrt{\frac{g}{l}}
     \end{align}\\
     单摆的角频率：
     \begin{large}
@@ -1485,21 +1498,57 @@
     2.要有能够传播这种机械振动的物质提供介质。\\[5mm]
     波的传播中，介质中的各质点仅在其平衡位置附近振动，而不随波前进。\\[3mm]
     波的传播中，振动状态以一定速度向前传播，质点中后振动的相较于先振动的存在一个时间差。\\[3mm]
-    由此可见，波动实际上就是振动状态在弹性介质中的传播。\\
+    由此可见，波动实际上就是振动状态在弹性介质中的传播。
 
 \subsubsection{机械波的分类}
     横波：质点的振动方向和波的传递方向垂直，外形特征上具有波峰和波谷。\\[3mm]
     纵波：质点的振动方向和波的传递方向平行，外形特征上具有稠密和稀疏。\\[3mm]
     在气体介质中，只能产生纵波。\\[3mm]
     在液体介质中，只能产生纵波。\\[3mm]
-    在固体介质中，可以产生纵波和横波。\\
+    在固体介质中，可以产生纵波和横波。
 
 \subsubsection{机械波的概念}
     为了讨论波的传播情况，我们引入波线波面和波前的概念。\\[3mm]
     波线指的是波的传播方向所形成的射线。\\[3mm]
     波面指的是由相位相同的点所连成的面。\\[3mm]
-    波前指的是波在传播过程中位于最前面的那个波面。\\[3mm]
-    显然波的传播实际上就是波前的位置不断向前推进的过程。\\
+    波前指的是波在传播过程中位于最前面的那个波面。\vspace{5pt}
+    \begin{figure}[h]
+        \begin{center}
+            \begin{tikzpicture}[>=stealth,scale=0.7]
+                \draw[smooth,thick,samples=100,domain=-2*pi:1*pi] plot(\x,{0.25*sin(4.0*\x r)});
+                \draw[->,thick](1*pi,0)--(2*pi,0);
+                \draw[smooth,thick,samples=100,domain=-2*pi:1*pi] plot(\x,{1+0.25*sin(4.0*\x r)});
+                \draw[->,thick](1*pi,1)--(2*pi,1);
+                \draw[smooth,thick,samples=100,domain=-2*pi:1*pi] plot(\x,{2+0.25*sin(4.0*\x r)});
+                \draw[->,thick](1*pi,2)--(2*pi,2);
+                \draw[smooth,thick,samples=100,domain=-2*pi:1*pi] plot(\x,{3+0.25*sin(4.0*\x r)});
+                \draw[->,thick](1*pi,3)--(2*pi,3);
+                \node at(2*pi+1,0) {\small 波线};
+                \node at(2*pi+1,1) {\small 波线};
+                \node at(2*pi+1,2) {\small 波线};
+                \node at(2*pi+1,3) {\small 波线};
+
+                \draw[dashed](-1.625*pi,-1)--(-1.625*pi,+4);
+                \draw[dashed](-1.250*pi,-1)--(-1.250*pi,+4);
+                \draw[dashed](-0.875*pi,-1)--(-0.875*pi,+4);
+                \draw[dashed](-0.500*pi,-1)--(-0.500*pi,+4);
+                \draw[dashed](-0.125*pi,-1)--(-0.125*pi,+4);
+                \draw[dashed](+0.250*pi,-1)--(+0.250*pi,+4);
+                \draw[dashed](+0.625*pi,-1)--(+0.625*pi,+4);
+                \draw(+1.00*pi,-1)--(+1.00*pi,+4);
+
+                \node at(-1.625*pi,-1.5) {\small 波面};
+                \node at(-1.250*pi,-1.5) {\small 波面};
+                \node at(-0.875*pi,-1.5) {\small 波面};
+                \node at(-0.500*pi,-1.5) {\small 波面};
+                \node at(-0.125*pi,-1.5) {\small 波面};
+                \node at(+0.250*pi,-1.5) {\small 波面};
+                \node at(+0.625*pi,-1.5) {\small 波面};
+                \node at(+1.000*pi,-1.5) {\small 波前};
+            \end{tikzpicture}
+            \caption{波线~波面~波前}
+        \end{center}
+    \end{figure}
 
 \newpage
 
@@ -1568,7 +1617,7 @@
         \end{equation*}
     \end{large}\\
     当位移一定即$x=x_1$时，此时的波动方程代表$x_1$点的振动方程，绘制的正弦曲线称为振动图。\\[3mm]
-    当位移一定即$\,t\,=t_1\,$时，此时的波动方程代表$t_1$时的波形状况，绘制的正弦曲线称为波形图。\\[3mm]
+    当时间一定即$\,t\,=t_1\,$时，此时的波动方程代表$t_1$时的波形状况，绘制的正弦曲线称为波形图。\\[3mm]
 
 \newpage
 
@@ -1598,8 +1647,42 @@
             \Delta\varphi=-\frac{2\pi}{\lambda}\cdot\Delta x
         \end{equation*}
     \end{large}\\
-    该公式描述了一定波长下，波程差和相位差的关系。
-    
+    该公式描述了一定波长下，在同一波中不同点间的波程差和相位差的关系。
+
+\newpage
+
+\subsubsection{惠更斯原理}
+    惠更斯原理：介质中波动传播到的各点都可以作为发射子波的波源，在其后的任意时刻，这些子波所构成的包络就是新的波前。\\[3mm]
+    惠更斯原理对于任何波动过程都是普遍适用的，只要知道某一时刻的波前位置，就可以得知任意时刻的波前位置，从而确定波的传播方向。\\[3mm]
+    惠更斯原理可以解释波的直线传播：
+    \begin{figure}[h]
+        \begin{center}
+            \begin{tikzpicture}[>=stealth,scale=1.0]
+                \draw[->](-6,+2)--(0,+2);
+                \draw[->](-6,+1)--(0,+1);
+                \draw[->](-6,+0)--(0,+0);
+                \draw[->](-6,-1)--(0,-1);
+                \draw[->](-6,-2)--(0,-2);
+                \draw(0,+3.2)--(0,-3.2);
+                \draw(0.5,+3.2)--(0.5,-3.2);
+                \draw(0,+2.0) arc(-90:90:0.5);
+                \draw(0,+1.5) arc(-90:90:0.5);
+                \draw(0,+1.0) arc(-90:90:0.5);
+                \draw(0,+0.5) arc(-90:90:0.5);
+                \draw(0,+0.0) arc(-90:90:0.5);
+                \draw(0,-0.5) arc(-90:90:0.5);
+                \draw(0,-1.0) arc(-90:90:0.5);
+                \draw(0,-1.5) arc(-90:90:0.5);
+                \draw(0,-2.0) arc(-90:90:0.5);
+                \draw(0,-2.5) arc(-90:90:0.5);
+                \draw(0,-3.0) arc(-90:90:0.5);                
+            \end{tikzpicture}
+            \caption{惠更斯原理}
+        \end{center}
+    \end{figure}\\
+    如图所示，左侧是原来的波前，右侧是之后的波前，根据惠更斯原理左侧的波前上每一点都可以视为新的子波源，
+    这些子波源形成的的子波所构成的包络面就是右侧的波前。\\[3mm]
+    由此可见，波在均匀介质中传播的过程中，波前的几何形状是基本不变的。
 
 \newpage
 
@@ -1611,30 +1694,207 @@
             \alpha=\beta
         \end{equation*}
     \end{large}
+    \begin{figure}[h]
+        \begin{center}
+            \begin{tikzpicture}[>=stealth,scale=1.0]
+                \draw[thick] (-4,0)--(+4,0);
+                \draw[dashed] (0,+3)--(0,0);
+                \draw[->] (-3.5,2)--(-1.75,1);
+                \draw (-1.75,1)--(0,0);
+                \draw[->] (0,0)--(+1.75,1);
+                \draw (+1.75,1)--(+3.5,2);
+
+                \draw(0,0.4) arc(90:150:0.4);
+                \draw(0,0.4) arc(90:30:0.4);
+
+                \node at(-0.3,0.6) {$\alpha$};
+                \node at(+0.3,0.6) {$\beta$};
+                
+            \end{tikzpicture}
+            \caption{波的反射}
+        \end{center}
+    \end{figure}\\
 
 \subsubsection{波的折射}
-    波的折射：波从一种介质传递到另一种介质中时，波的传播方向在新的介质中发生改变。\\[3mm]
+    波的折射：波传递到两种介质的分界面上时，波的传播方向在新的介质中发生改变。\\[3mm]
     波的入射角$\alpha$和反射角$\beta$的关系：
     \begin{large}
         \begin{equation*}
             \frac{\sin{\alpha}}{\sin{\beta}}=\frac{v_\alpha}{v_\beta}
         \end{equation*}
     \end{large}
+    \begin{figure}[h]
+        \begin{center}
+            \begin{tikzpicture}[>=stealth,scale=1.0]
+                \draw[thick] (-4,0)--(+4,0);
+                \draw[dashed] (0,+3)--(0,-2);
+                \draw[->] (-3.5,2)--(-1.75,1);
+                \draw (-1.75,1)--(0,0);
+                \draw[->] (0,0)--(+1.75,-0.5);
+                \draw (+1.75,-0.5)--(+3.50,-1.0);
 
-\subsubsection{波的衍射}
-    波的衍射：波在传播过程中遇到障碍物时，波绕过障碍物继续传播。\\[3mm]
-    需要注意的是，只有障碍物和波长相近时衍射现象才会较为明显，过大或过小均均不明显。
+                \draw(0,0.4) arc(90:150:0.4);
+                \draw(0,-0.4) arc(-90:-16:0.4);
+
+                \node at(-0.3,0.6) {$\alpha$};
+                \node at(+0.3,-0.6) {$\beta$};
+                
+            \end{tikzpicture}
+            \caption{波的反射}
+        \end{center}
+    \end{figure}\\
 
 \newpage
 
-\subsubsection{波的干涉现象}
-    当两列波传递到介质中同一位置时，这个位置的质点将同时参与两列波引起的振动，
-    合振动的位移等于分振动的位移和，同时两列波在介质中相遇后，也能互不影响的相互穿越继续传播。\\[3mm]
-    波的干涉现象：频率相同的两列波叠加，使得某些区域的振动增强，使得某些区域的振动减弱，
-    并且振动增强区域和振动减弱区域互相间隔。
+\subsubsection{波的衍射}
+    波的衍射：波在传播过程中遇到障碍物时，波绕过障碍物继续传播。\\[3mm]
+    根据惠更斯原理，当缝隙较大时，波前的形状改变不明显，衍射现象不明显：
+    \begin{figure}[h]
+        \begin{center}
+            \begin{tikzpicture}[>=stealth,scale=1.0]
+                \draw[->](-6,+2)--(-0.5,+2);
+                \draw[->](-6,+1)--(-0.5,+1);
+                \draw[->](-6,+0)--(-0.5,+0);
+                \draw[->](-6,-1)--(-0.5,-1);
+                \draw[->](-6,-2)--(-0.5,-2);
+
+                \draw[thick](-0.5,+2.3)--(-0.5,-2.3);
+
+                \draw[dashed](0,+2.0)--(0,-2.0);
+
+                \draw[ultra thick](0,+3.2)--(0,+2.0);
+                \draw[ultra thick](0,-3.2)--(0,-2.0);
+
+                \draw(0,+1.0) arc(-90:90:0.5);
+                \draw(0,+0.5) arc(-90:90:0.5);
+                \draw(0,+0.0) arc(-90:90:0.5);
+                \draw(0,-0.5) arc(-90:90:0.5);
+                \draw(0,-1.0) arc(-90:90:0.5);
+                \draw(0,-1.5) arc(-90:90:0.5);
+                \draw(0,-2.0) arc(-90:90:0.5);
+
+                \draw[thick](0.5,+1.5)--(0.5,-1.5);
+                \draw[thick](0,-2.0) arc(-90:0:0.5);
+                \draw[thick](0,+2.0) arc(+90:0:0.5);
+            \end{tikzpicture}
+            \caption{缝隙较大时的衍射}
+        \end{center}
+    \end{figure}\\
+    根据惠更斯原理，当缝隙较小时，波前的形状改变较明显，衍射现象较明显：
+    \begin{figure}[h]
+        \begin{center}
+            \begin{tikzpicture}[>=stealth,scale=1.0]
+                \draw[->](-6,+2)--(-0.5,+2);
+                \draw[->](-6,+1)--(-0.5,+1);
+                \draw[->](-6,+0)--(-0.5,+0);
+                \draw[->](-6,-1)--(-0.5,-1);
+                \draw[->](-6,-2)--(-0.5,-2);
+
+                \draw[thick](-0.5,+2.3)--(-0.5,-2.3);
+
+                \draw[dashed](0,+1.0)--(0,-1.0);
+
+                \draw[ultra thick](0,+3.2)--(0,+1.0);
+                \draw[ultra thick](0,-3.2)--(0,-1.0);
+
+                \draw(0,+0.0) arc(-90:90:0.5);
+                \draw(0,-0.5) arc(-90:90:0.5);
+                \draw(0,-1.0) arc(-90:90:0.5);
+
+                \draw[thick](0.5,+0.5)--(0.5,-0.5);
+                \draw[thick](0,-1.0) arc(-90:0:0.5);
+                \draw[thick](0,+1.0) arc(+90:0:0.5);
+            \end{tikzpicture}
+            \caption{缝隙较小时的衍射}
+        \end{center}
+    \end{figure}\\
+    需要指出的是，只有障碍物和波长相近时衍射现象才会较为明显，过大或过小均均不明显。\\[5mm]
+
+\newpage
+
+\subsubsection{波的干涉}
+    波的干涉：两列相干波在空间中叠加时，使得某些区域的振动增强，使得某些区域的振动减弱，
+    并且振动增强区域和振动减弱区域互相间隔，形成了稳定的振幅分布。\\[3mm]
+    相干波源指的是两个频率相同且初相差恒定的波源，相干波源所发出的波互为相干波。\\[3mm]
+    假设有两个相干波源$S_1$和$S_2$，其发出的相干波在点$P$相遇，令$PS_1=r_1$，令$PS_2=r_2$。\\[3mm]
+    设两列相干波在波源$S_1$和$S_2$处的振动方程如下：
+    \setcounter{equation}{0}
+    \begin{align}
+        y_1=A_1\cdot\cos{\left(\omega\cdot t+\varphi_1\right)}\\[3mm]
+        y_2=A_2\cdot\cos{\left(\omega\cdot t+\varphi_2\right)}
+    \end{align}\\
+    根据同一波中不同点间的波程差和相位差的关系：
+    \begin{align}
+        \Delta\varphi_1=-\frac{2\pi}{\lambda}\cdot r_1\\[3mm]
+        \Delta\varphi_2=-\frac{2\pi}{\lambda}\cdot r_2
+    \end{align}\\
+    故两列相干波在点$P$处的振动方程如下：
+    \begin{align}
+        y_1=A_1\cdot\cos{\left(\omega\cdot t+\varphi_1-\frac{2\pi}{\lambda}\cdot r_1\right)}\\[3mm]
+        y_2=A_2\cdot\cos{\left(\omega\cdot t+\varphi_2-\frac{2\pi}{\lambda}\cdot r_2\right)}
+    \end{align}\\
+    根据角频率相同的简谐运动叠加的原理可以得到：\vspace{5pt}
+    \begin{align}
+        A=\sqrt{A_1^2+A_2^2+2\cdot A_1\cdot A_2\cdot\cos\left[\varphi_2-\varphi_1-\frac{2\pi}{\lambda}\cdot\left(r_2-r_1\right)\right]}
+    \end{align}\\
+    由此可见，对于两列确定的相干波和某一确定的点，叠加后的振幅是时间无关的常量。\\[3mm]
+    因此这也证明了频率相同初相差恒定的相干波，可以发生干涉现象。\\[6mm]
+    其中我们定义$\delta=r_2-r_1$作为两列相干波由波源至点$P$的波程差。
+    
+\newpage
+
+    显然当满足以下条件时合振幅最大：
+    \begin{align}
+        \left[\varphi_2-\varphi_1-\frac{2\pi}{\lambda}\cdot\delta\right]=(2k+0)\cdot\pi~~~~~~k\in\mathbb{Z}
+    \end{align}\\
+    显然此时的最大振幅为：
+    \begin{large}
+        \begin{equation*}
+            A=|A_1+A_2|
+        \end{equation*}
+    \end{large}\\
+    若初相位不等则波程差需满足：
+    \begin{large}
+        \begin{equation*}
+            \delta=\frac{\lambda}{2\pi}\cdot(\varphi_2-\varphi_1)-\frac{\lambda}{2}\cdot(2k+0)~~~~~~k\in\mathbb{Z}
+        \end{equation*}
+    \end{large}\\
+    若初相位相等则波程差需满足：
+    \begin{large}
+        \begin{equation*}
+            \delta=\frac{\lambda}{2}\cdot(2k+0)~~~~~~k\in\mathbb{Z}
+        \end{equation*}
+    \end{large}\\
+    即当初相位相等时，在波程差为半波长的偶数倍时，振幅最大。\\[16mm]
+    显然当满足以下条件时合振幅最小：
+    \begin{align}
+        \left[\varphi_2-\varphi_1-\frac{2\pi}{\lambda}\cdot\delta\right]=(2k+1)\cdot\pi~~~~~~k\in\mathbb{Z}
+    \end{align}\\
+    显然此时的最小振幅为：
+    \begin{large}
+        \begin{equation*}
+            A=|A_1-A_2|
+        \end{equation*}
+    \end{large}\\
+    若初相位不等则波程差需满足：
+    \begin{large}
+        \begin{equation*}
+            \delta=\frac{\lambda}{2\pi}\cdot(\varphi_2-\varphi_1)-\frac{\lambda}{2}\cdot(2k+1)~~~~~~k\in\mathbb{Z}
+        \end{equation*}
+    \end{large}\\
+    若初相位相等则波程差需满足：
+    \begin{large}
+        \begin{equation*}
+            \delta=\frac{\lambda}{2}\cdot(2k+1)~~~~~~k\in\mathbb{Z}
+        \end{equation*}
+    \end{large}\\
+    即当初相位相等时，在波程差为半波长的奇数倍时，振幅最小。
+
+
+\newpage
 
 \subsubsection{声波和声强级}
-    声波是一种纵波，频率低于$20$Hz的声波称为次声波，频率高���$20000$Hz的声波称为超声波。\\[3mm]
+    声波是一种纵波，频率低于$20$Hz的声波称为次声波，频率高于$20000$Hz的声波称为超声波。\\[3mm]
     声强衡量了声音的强度，通常用符号$I$表示，单位是W/m$^2$。\\[3mm]
     声强的计算公式：
     \begin{large}
@@ -2095,7 +2355,7 @@
         \begin{center}
             \subfigure
             {
-                \begin{minipage}[t]{0.4\linewidth}
+                \begin{minipage}[t]{0.43\linewidth}
                     \begin{tikzpicture}[>=stealth,scale=1.0]
                         \fill [black] (-0.1,2.2) rectangle (0.1,-2.2);
                         \node at(0,2.5) {$+\sigma$};
@@ -2128,7 +2388,7 @@
             }\qquad\qquad
             \subfigure
             {
-                \begin{minipage}[t]{0.4\linewidth}
+                \begin{minipage}[t]{0.43\linewidth}
                     \begin{tikzpicture}[>=stealth,scale=1.0]
                         \fill [black] (-0.1,2.2) rectangle (0.1,-2.2);
                         \node at(0,2.5) {$-\sigma$};
@@ -3295,7 +3555,379 @@
 
 \newpage
 
-\section{电磁波}
+\section{光学}
+
+\subsection{几何光学}
+    几何光学指的是用几何的方法研究光学，将光近似的看作光线进行研究。\\[3mm]
+    几何光学仅仅是一种十分粗略的近似，但是在某些不必涉及光的本性的场合下仍然十分有用。
+
+\subsubsection{光的反射}
+    光的反射：光传递到两种介质的分界面上时，光的传播方向调转回到原来的介质中。\\[3mm]
+    光的入射角$\theta_1$和反射角$\theta_2$的关系：
+    \begin{large}
+        \begin{equation*}
+            \theta_1=\theta_2
+        \end{equation*}
+    \end{large}
+    \begin{figure}[h]
+        \begin{center}
+            \begin{tikzpicture}[>=stealth,scale=0.9]
+                \draw[thick] (-4,0)--(+4,0);
+                \draw[dashed] (0,+3)--(0,0);
+                \draw[->] (-3.5,2)--(-1.75,1);
+                \draw (-1.75,1)--(0,0);
+                \draw[->] (0,0)--(+1.75,1);
+                \draw (+1.75,1)--(+3.5,2);
+
+                \draw(0,0.4) arc(90:150:0.4);
+                \draw(0,0.4) arc(90:30:0.4);
+
+                \node at(-0.3,0.6) {$\theta_1$};
+                \node at(+0.3,0.6) {$\theta_2$};
+                
+            \end{tikzpicture}
+            \caption{光的反射}
+        \end{center}
+    \end{figure}\vspace{-10pt}
+
+\subsubsection{光的折射}
+    光的折射：光传递到两种介质的分界面上时，光的传播方向在新的介质中发生改变。\\[3mm]
+    光的入射角$\theta_1$和反射角$\theta_2$的关系：
+    \begin{large}
+        \begin{equation*}
+            \frac{\sin{\theta_1}}{\sin{\theta_2}}=\frac{v_1}{v_2}
+        \end{equation*}
+    \end{large}
+    \begin{figure}[h]
+        \begin{center}
+            \begin{tikzpicture}[>=stealth,scale=0.9]
+                \draw[thick] (-4,0)--(+4,0);
+                \draw[dashed] (0,+2.5)--(0,-1.5);
+                \draw[->] (-3.5,2)--(-1.75,1);
+                \draw (-1.75,1)--(0,0);
+                \draw[->] (0,0)--(+1.75,-0.5);
+                \draw (+1.75,-0.5)--(+3.50,-1.0);
+
+                \draw(0,0.4) arc(90:150:0.4);
+                \draw(0,-0.4) arc(-90:-16:0.4);
+
+                \node at(-0.3,0.6) {$\theta_1$};
+                \node at(+0.3,-0.6) {$\theta_2$};
+                
+            \end{tikzpicture}
+            \caption{光的折射}
+        \end{center}
+    \end{figure}\\
+    折射公式中，符号$v_1$指的是光在上方介质中的速度，符号$v_2$指的是下方介质中的速度。
+
+\newpage
+
+\subsubsection{折射率}
+    当光由介质$1$射向介质$2$时，定义相对折射率为$n_{21}$。\\[3mm]
+    相对折射率的计算公式：
+    \begin{large}
+        \begin{equation*}
+            n_{21}=\frac{v_1}{v_2}
+        \end{equation*}
+    \end{large}\\
+    当光由真空射向介质时，定义绝对折射率$n$。\\[3mm]
+    绝对折射率的计算公式：
+    \begin{large}
+        \begin{equation*}
+            n=\frac{c}{v}
+        \end{equation*}
+    \end{large}\\
+    以下列出了一些常见介质的绝对折射率：\vspace{5pt}
+    \begin{table}[h]
+        \begin{center}
+            \begin{tabular}{l|l}
+                \hline
+                介质种类~~~~~~~~&绝对折射率~~~~~~~~\\ \hline
+                真空&1.00\\ \hline
+                水&1.33\\ \hline
+                乙醚&1.35\\ \hline
+                乙醇&1.36\\ \hline
+                玻璃&1.60\\ \hline
+                金刚石&2.42\\ \hline
+            \end{tabular}
+            \caption{常见介质的绝对折射率}
+        \end{center}
+    \end{table}\\
+    某种介质的绝对折射率，通常情况下也可以简称为该种介质的折射率。\\[3mm]
+    由于光在真空和空气中的传播速度基本相等，因此可以近似认为空气的折射率也为$1$。\\[6mm]
+    使用折射率可以将折射公式重写为：
+    \begin{large}
+        \begin{equation*}
+            n_1\cdot\sin{\theta_1}=n_2\cdot\sin{\theta_2}
+        \end{equation*}
+    \end{large}\\
+    对于两种不同的介质来说：\\[3mm]
+    光在其中传播速度较大的，绝对折射率较小的，称为光疏介质。\\[3mm]
+    光在其中传播速度较小的，绝对折射率较大的，称为光密介质。\\[3mm]
+    光由光疏介质射向光密介质，折射角总是小于入射角。\\[3mm]
+    光由光密介质射向光疏介质，折射角总是大于入射角。
+
+\newpage
+
+\subsubsection{光程和光程差}
+    光程的定义：若光在折射率为$n$的介质中传播，传播经过的路程为$s$，传播所消耗的时间为$t$，
+    那么，光在时间$t$内，光在真空中传播的路程为$l$，而这个路程就是光程。\\[3mm]
+    光程的计算公式：
+    \begin{large}
+        \begin{equation*}
+            l=n\cdot s
+        \end{equation*}
+    \end{large}\\
+    光程的计算公式证明：
+    \setcounter{equation}{0}
+    \begin{align}
+        l
+        &=c\cdot t\\[3mm]
+        &=c\cdot\frac{s}{v}\\[3mm]
+        &=c\cdot\frac{s}{\frac{c}{n}}\\[3mm]
+        &=c\cdot s\cdot\frac{n}{c}\\[3mm]
+        &=n\cdot s
+    \end{align}\\
+    光程的差值称为光程差，光程差通常用符号$\Delta l$表示。\\[3mm]
+    光程差的计算公式：
+    \begin{large}
+        \begin{equation*}
+            \Delta l=n_2\cdot s_2-n_1\cdot s_1                
+        \end{equation*}
+    \end{large}\\
+    由于不同介质中的光速不同，故光的传播时间和几何路程不等价，但光的传播时间和光程等价，
+    因此光程和光程差的重要意义在于可以替代时间和时间差进行计算。\\[3mm]
+    例如通过光程差的概念，可以将两列光的时间差为零，转换为两列光的光程差为零。\\[3mm]
+    如此应用光程和光程差，可以有效的免去计算时间和时间差时的大量乘除光速的运算。\\
+
+\newpage
+
+\subsubsection{光学中的小角度近似}
+    在几何光学中，我们常会运用以下所示的几何近似，从而一定程度上简化运算。\\[3mm]
+    对于下图所示的三角形：
+    \begin{figure}[h]
+        \begin{center}
+            \begin{tikzpicture}[>=stealth,scale=1.5]
+                \draw (0,0)--(5,0);
+                \draw (0,0)--(0,2);
+                \draw (5,0)--(0,2);
+
+                \node at(-0.3,1) {$b$};
+                \node at(2.5,-0.3) {$a$};
+                \node at(2.6,1.2) {$c$};
+
+                \node at(0.19,2.13) {$\Delta$};
+
+                \draw(0,0) arc(180.00:158.20:5);
+                \draw(4.7,0) arc(180.00:158.20:0.3);;
+
+                \node at(4.4,0.11) {$\theta$};
+            \end{tikzpicture}
+            \caption{光学中的小角度近似}
+        \end{center}
+    \end{figure}\\
+    显然我们有：
+    \setcounter{equation}{0}
+    \begin{align}
+        &b^2=c^2-a^2\\[3mm]
+        &b^2=(c+a)\cdot(c-a)
+    \end{align}\\
+    当角很小时：
+    \begin{align}
+        &c+a\approx 2\cdot c\\[3mm]
+        &c-a=\Delta
+    \end{align}\\
+    代入可得：
+    \begin{align}
+        &b^2=(c+a)\cdot(c-a)\\[3mm]
+        &b^2=2\cdot c\cdot \Delta\\[3mm]
+        &\Delta=\frac{b^2}{2\cdot c}
+    \end{align}\\
+    光学中的小角度近似：
+    \begin{large}
+        \begin{equation*}
+            \Delta=\frac{b^2}{2\cdot c}
+        \end{equation*}
+    \end{large}\\
+    该结论十分重要，将在之后的推导中被反复使用。
+
+\newpage
+
+\subsubsection{费马最短时间原理}
+    费马最短时间原理：光从一点行进到另一点时，光走的是所用时间最短的路径。\\[3mm]
+    费马最短时间原理中，也可以将时间最短替换为光程最短，因为两者是等价的。
+
+\subsubsection*{1.费马最短时间原理对反射的解释}
+    费马最短时间原理可以很好的解释光的反射。\\[3mm]
+    考虑一束光线从点$P$出发反射至点$Q$，现通过费马最短时间原理研究光线于何点反射。\\[3mm]
+    考虑以下示意图：
+    \begin{figure}[h]
+        \begin{center}
+            \begin{tikzpicture}[>=stealth,scale=0.95]
+                \draw[very thick] (-4.5,0)--(5.5,0);
+                \draw (-3.5,2)--(0,0);
+                \draw (+4.375,2.5)--(0,0);
+                \draw[dashed] (0,0)--(+4.375,-2.5);
+                \draw (-3.5,2)--(-2,0);
+                \draw (+4.375,2.5)--(-2,0);
+                \draw[dashed] (-2,0)--(+4.375,-2.5);
+
+                \node at(-3.8,+2) {$P$};
+                \node at(+4.675,+2.5) {$Q$};
+                \node at(+4.675,-2.5) {$M$};
+                \node at(-0.3,-0.3) {$X$};
+                \node at(-2.1,-0.25) {$Y$};
+
+                \node at(-4.3,0.2) {$n$};
+
+                \draw[dashed] (+4.375,+2.5)--(+4.375,-2.5);
+                \node at(+4.675,0.3) {$H$};
+
+                \draw[dashed] (0,+3)--(0,-3);
+                \node at(0.3,+3) {$F_1$};
+                \node at(0.3,-3) {$F_2$};
+            \end{tikzpicture}
+            \caption{费马最短时间原理对反射的解释}
+        \end{center}
+    \end{figure}\\
+    过反射面作点$Q$的对称点$M$，联结$PM$交反射于点$X$，可以证明点$X$就是所求点。\\[3mm]
+    因为点$P$经点$X$至点$Q$的光程为：
+    \setcounter{equation}{0}
+    \begin{align}
+        l_{PXQ}
+        &=l_{PX}+l_{QX}\\[1mm]
+        &=l_{PX}+l_{MX}\\[1mm]
+        &=n\cdot(PX+MX)
+    \end{align}\\
+    同时点$P$经点$Y$至点$Q$的光程为：
+    \begin{align}
+        l_{PYQ}
+        &=l_{PY}+l_{QY}\\[1mm]
+        &=l_{PY}+l_{MY}\\[1mm]
+        &=n\cdot(PY+MY)
+    \end{align}\\
+    其中点$Y$是反射面上任意不同于点$X$的一点。
+
+\newpage
+
+    然而根据三角形的边长关系：
+    \begin{align}
+        &PY+MY>PQ\\[4mm]
+        &PY+MY>PX+MX\\[4mm]
+        &\,n\cdot(PY+MY)>n\cdot(PX+MX)\\[4mm]
+        &\,l_{PYQ}>l_{PXQ}
+    \end{align}\\
+    由此证明了，经过反射面上任意一点$Y$的光程都长于经过点$X$的光程。\\[3mm]
+    故根据费马最短时间原理，光线必然会通过点$X$发生反射。\\[8mm]
+    据此还可以进一步推导：
+    \begin{align}
+        &\angle QXH=\angle MXH\\[4mm]
+        &\angle QXH=\angle PXY\\[4mm]
+        &\angle F_1XY-\angle QXH=\angle F_1XH-\angle PXY\\[4mm]
+        &\angle F_1XP=\angle F_1XQ
+    \end{align}\\
+    若我们这样表示入射角和反射角：
+    \begin{large}
+        \begin{align*}
+            &\theta_1=\angle F_1XP\\[4mm]
+            &\theta_2=\angle F_1XQ
+        \end{align*}
+    \end{large}\\
+    则可以得到通常所见的反射定律：
+    \begin{large}
+        \begin{equation*}
+            \theta_1=\theta_2
+        \end{equation*}
+    \end{large}\\
+    即光发生反射时，入射角等于反射角。
+
+\newpage
+
+\subsubsection*{2.费马最短时间原理对折射的解释}
+    费马最短时间原理可以很好的解释光的折射。\\[3mm]
+    考虑一束光线从点$P$出发折射至点$Q$，现通过费马时间最短原理研究光线于何点折射。\\[3mm]
+    考虑以下示意图：
+    \begin{figure}[h]
+        \begin{center}
+            \begin{tikzpicture}[>=stealth,scale=0.95]
+                \draw[very thick] (-4.5,0)--(5.5,0);
+                \draw (-3.5,2)--(+2,0);
+                \draw (+4.375,-2.5)--(+2,0);
+                \draw (-3.5,2)--(+0.5,0);
+                \draw (+4.375,-2.5)--(+0.5,0);
+
+                \node at(-3.8,+2) {$P$};
+                \node at(+4.675,-2.5) {$Q$};
+                \node at(+2.3,+0.3) {$X$};
+                \node at(+0.3,-0.25) {$Y$};
+
+                \node at(-4.3,+0.2) {$n_1$};
+                \node at(-4.3,-0.25) {$n_2$};
+
+                \draw[dashed] (2,+3)--(2,-3);
+                \node at(2.3,+3) {$F_1$};
+                \node at(2.3,-3) {$F_2$};
+
+                \draw[dashed] (+0.5,0)--(0.675,+0.482);
+                \draw[dashed] (+2.0,0)--(1.560,-0.683);
+
+                \node at(0.72,+0.78) {$B$};
+                \node at(1.4,-0.9) {$A$};
+            \end{tikzpicture}
+            \caption{费马最短时间原理对反射的解释}
+        \end{center}
+    \end{figure}\\
+    设点$X$是折射时所经点，设点$Y$是其附近一点，可以推导出点$X$应当处于什么位置。\\[3mm]
+    若点$X$为正确的折射点，那么将其移至附近的点$Y$时，光程应当基本不变。\\[6mm]
+    过点$X$作$YQ$的垂线$XA$，由于角$\angle XQA$很小：
+    \setcounter{equation}{0}
+    \begin{align}
+        &PB=PY\\[3mm]
+        &\,n_1\cdot PB=n_1\cdot PY\\[3mm]
+        &\,l_{PB}=l_{PY}
+    \end{align}\\
+    过点$Y$作$XP$的垂线$YB$，由于角$\angle YPB$很小：
+    \begin{align}
+        &QA=QX\\[3mm]
+        &\,n_2\cdot QA=n_2\cdot QX\\[3mm]
+        &\,l_{QA}=l_{QX}
+    \end{align}
+
+\newpage
+
+    光程$BX$可以表示为：
+    \begin{align}
+        l_{BX}=n_1\cdot BX
+    \end{align}\\
+    光程$AY$可以表示为：
+    \begin{align}
+        l_{AY}=n_2\cdot AY
+    \end{align}\\
+    因为光经过点$X$和点$Y$的光程相等：
+    \begin{align}
+        &l_{PXQ}=l_{PYQ}\\[4mm]
+        &l_{PB}+l_{QX}+l_{BX}+=l_{PY}+l_{QA}+l_{AY}\\[4mm]
+        &l_{BX}=l_{AY}\\[4mm]
+        &n_1\cdot BX=n_2\cdot AY\\[4mm]
+        &n_1\cdot XY\cdot\sin{\angle BYX}=n_2\cdot XY\cdot\sin{\angle AXY}\\[4mm]
+        &n_1\cdot\sin{\angle BYX}=n_2\cdot\sin{\angle AXY}
+    \end{align}\\
+    若我们这样表示入射角和折射角：
+    \begin{large}
+        \begin{align*}
+            \theta_1=\angle F_1XP=\angle BYX\\[4mm]
+            \theta_2=\angle F_2XQ\approx \angle AXY
+        \end{align*}
+    \end{large}\\
+    则可以得到通常所见的折射定律：
+    \begin{large}
+        \begin{equation*}
+            n_1\cdot\sin{\theta_1}=n_2\cdot\sin{\theta_2}
+        \end{equation*}
+    \end{large}\\
+    即光发生折射时，入射角的正弦和其折射率的乘积等于折射角的正弦和其折射率的乘积。
+
+\newpage
 
 \subsection{电磁波的类型}
     麦克斯韦认为，变化的电场产生磁场，变化的磁场产生电场，电场和磁场是电磁场的不同侧面。\\[3mm]
