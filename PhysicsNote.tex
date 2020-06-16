@@ -11,6 +11,12 @@
 
 \RequirePackage{tikz}
 \RequirePackage{circuitikz}
+\RequirePackage{tkz-euclide}
+
+\usetikzlibrary{calc}
+\usetikzlibrary{intersections}
+\usetikzlibrary{angles}
+\usetkzobj{all}
 
 \RequirePackage{multirow}
 
@@ -3926,6 +3932,454 @@
         \end{equation*}
     \end{large}\\
     即光发生折射时，入射角的正弦和其折射率的乘积等于折射角的正弦和其折射率的乘积。
+
+\newpage
+
+\subsubsection{单折射曲面的情况}
+    我们将要研究只有一个折射曲面的情况，其左侧为介质$n_1$，其右侧为介质$n_2$。\\[3mm]
+    考虑以下示意图：
+    \begin{figure}[h]
+        \begin{center}
+            \begin{tikzpicture}[scale=1.2]
+                \tkzDefPoint(-4,0){O1}
+                \tkzDefPoint(+5,0){O2}
+
+                \tkzDefPoint(-5,0){O1X}
+                \tkzDefPoint(+6,0){O2X}
+
+                \tkzDefPoint(0,+1){P}
+                \tkzDefPoint(0,+0){Q}
+                \tkzDefPoint(0,-1){T}
+
+                \tkzDefPoint(2,0){C}
+
+                \tkzDefPoint(-0.236,0){V}
+                
+                \tkzDrawSegments(O1X,O2X)
+                \tkzDrawSegments(O1,P)
+                \tkzDrawSegments(O2,P)
+
+                \tkzDrawSegments(P,Q)
+                \tkzDrawSegments(P,C)
+
+                \tkzMarkRightAngle[scale=0.4](P,Q,C)
+                \tkzDrawArc[delta=20,color=black](C,P)(T)
+
+                \tkzLabelSegments[above](O1,P){$s_1$}
+                \tkzLabelSegments[above](O2,P){$s_2$}
+                \tkzLabelSegments[right](P,Q){$h$}
+                \tkzLabelSegments[pos=0.55,right=2.0pt](P,C){$r$}
+
+                \tkzLabelPoint[below](O1){$O_1$}
+                \tkzLabelPoint[below](O2){$O_2$}
+                \tkzLabelPoint[above left](P){$P$}
+                \tkzLabelPoint[below left](V){$V$}
+                \tkzLabelPoint[below](Q){$Q$}
+                \tkzLabelPoint[below](C){$C$}
+            
+                \tkzDefPoint(-2.0,-1){n1};
+                \tkzDefPoint(+2.5,-1){n2};
+
+                \tkzLabelPoint[below](n1){$n_1$}
+                \tkzLabelPoint[below](n2){$n_2$}
+            \end{tikzpicture}
+            \caption{单折射曲面的情况}
+        \end{center}
+    \end{figure}\\
+    假设在介质$n_1$中的轴上有一点$O_1$，假设在介质$n_2$中的轴上有一点$O_2$。\\[3mm]
+    设想一种曲面，可以使得所有从点$O_1$出发的光线汇聚到点$O_2$。\\[3mm]
+    显然这种曲面，要使得光线经过点$P$的光程等于光线经过点$Q$的光程。\\[3mm]
+    接下来我们将证明，以$C$为球心的球面就是满足要求的曲面。\\[6mm]
+    为便于计算进行以下近似：只考虑较为靠近轴的光线，这些光线也被称为旁轴光线。\\[3mm]
+    光线在$PO_1$和$QO_1$中的光程差为（均认为在介质$n_1$中传播）：
+    \setcounter{equation}{0}
+    \begin{align}
+        \Delta l_{(PO_1,QO_1,n_1)}
+        &=n_1\cdot(PO_1-QO_1)\\[3mm]
+        &=n_1\cdot\frac{h^2}{2\cdot s_1}
+    \end{align}\\
+    光线在$PO_2$和$QO_2$中的光程差为（均认为在介质$n_2$中传播）：
+    \begin{align}
+        \Delta l_{(PO_2,QO_2,n_2)}
+        &=n_2\cdot(PO_2-QO_2)\\[3mm]
+        &=n_2\cdot\frac{h^2}{2\cdot s_2}
+    \end{align}\\
+    然而实际上光线在$VQ$段是在$n_2$中传播，但是第一处推导认为光线在$VQ$段是在$n_1$中传播。\\[3mm]
+    因此现在要计算光线在$VQ$段以介质$n_2$传播相较于以介质$n_1$传播所额外耗费的光程。
+
+\newpage
+    光线在$VQ$中以$n_2$传播相较于以$n_1$传播所额外耗费的光程：
+    \begin{align}
+        l_{(VQ,n_2)}-l_{(VQ,n_1)}
+        &=n_2\cdot VQ-n_1\cdot VQ\\[4mm]
+        &=(n_2-n_1)\cdot VQ\\[4mm]
+        &=(n_2-n_1)\cdot(VC-QC)\\[4mm]
+        &=(n_2-n_1)\cdot(PC-QC)\\[2mm]
+        &=(n_2-n_1)\cdot\frac{h^2}{2\cdot r}
+    \end{align}\\
+    根据之前的分析显然可以有以下等式：\vspace{5pt}
+    \begin{align}
+        &\Delta l_{(PO_1,QO_1,n_1)}+\Delta l_{(PO_2,QO_2,n_2)}=l_{(VQ,n_2)}-l_{(VQ,n_1)}\\[5mm]
+        &n_1\cdot\frac{h^2}{2\cdot s_1}+n_2\cdot\frac{h^2}{2\cdot s_2}=(n_2-n_1)\cdot\frac{h^2}{2\cdot r}\\[5mm]
+        &n_1\cdot\frac{1}{2\cdot s_1}+n_2\cdot\frac{1}{2\cdot s_2}=(n_2-n_1)\cdot\frac{1}{2\cdot r}\\[5mm]
+        &\frac{n_1}{2\cdot s_1}+\frac{n_2}{2\cdot s_2}=\frac{n_2-n_1}{2\cdot r}\\[5mm]
+        &\frac{n_1}{s_1}+\frac{n_2}{s_2}=\frac{n_2-n_1}{r}
+    \end{align}\\[1mm]
+    由此我们得到了一个重要的关系：
+    \begin{large}
+        \begin{equation*}
+            \frac{n_1}{s_1}+\frac{n_2}{s_2}=\frac{n_2-n_1}{r}
+        \end{equation*}
+    \end{large}\\
+    该结论告诉我们，对于半径为$r$的球面，聚焦所需的物距$s_1$和像距$s_2$。
+
+\newpage
+
+    考虑当$s_2\rightarrow +\infty$时，此时光线从右侧平行射出。\\[3mm]
+    考虑以下示意图：\vspace{-40pt}
+    \begin{figure}[h]
+        \begin{center}
+            \begin{tikzpicture}[scale=1.0]
+                \tkzDefPoint(-4,0){O1}
+                \tkzDefPoint(+5,0){O2}
+
+                \tkzDefPoint(-5,0){O1X}
+                \tkzDefPoint(+6,0){O2X}
+
+                \tkzDefPoint(0,+1){P}
+                \tkzDefPoint(0,+0){Q}
+                \tkzDefPoint(0,-1){T}
+
+                \tkzDefPoint(2,0){C}
+                
+                \tkzDrawSegments(O1X,O2X)
+
+                \tkzDrawArc[delta=20,color=black](C,P)(T)
+
+                \tkzDefPoint(-1,+0.70){A1}
+                \tkzDefPoint(-1,+0.35){A2}
+                \tkzDefPoint(-1,+0.00){A3}
+                \tkzDefPoint(-1,-0.35){A4}
+                \tkzDefPoint(-1,-0.70){A5}
+
+                \tkzDrawSegments[->](O1,A1)
+                \tkzDrawSegments[->](O1,A2)
+                \tkzDrawSegments[->](O1,A3)
+                \tkzDrawSegments[->](O1,A4)
+                \tkzDrawSegments[->](O1,A5)
+
+                \tkzInterLC(O1,A1)(C,P)
+                \tkzGetFirstPoint{B1}
+                \tkzInterLC(O1,A2)(C,P)
+                \tkzGetFirstPoint{B2}
+                \tkzInterLC(O1,A3)(C,P)
+                \tkzGetFirstPoint{B3}
+                \tkzInterLC(O1,A4)(C,P)
+                \tkzGetSecondPoint{B4}
+                \tkzInterLC(O1,A5)(C,P)
+                \tkzGetSecondPoint{B5}
+
+                \tkzDrawSegments(A1,B1)
+                \tkzDrawSegments(A2,B2)
+                \tkzDrawSegments(A3,B3)
+                \tkzDrawSegments(A4,B4)
+                \tkzDrawSegments(A5,B5)
+
+                \tkzDefShiftPoint[B1](1,0){C1}
+                \tkzDefShiftPoint[B2](1,0){C2}
+                \tkzDefShiftPoint[B3](1,0){C3}
+                \tkzDefShiftPoint[B4](1,0){C4}
+                \tkzDefShiftPoint[B5](1,0){C5}
+
+                \tkzDefPoint(2,+1){T1}
+                \tkzDefPoint(2,-1){T2}
+
+                \tkzInterLL(B1,C1)(T1,T2)
+                \tkzGetPoint{D1}
+                \tkzInterLL(B2,C2)(T1,T2)
+                \tkzGetPoint{D2}
+                \tkzInterLL(B3,C3)(T1,T2)
+                \tkzGetPoint{D3}
+                \tkzInterLL(B4,C4)(T1,T2)
+                \tkzGetPoint{D4}
+                \tkzInterLL(B5,C5)(T1,T2)
+                \tkzGetPoint{D5}
+
+                \tkzDrawSegments[->](B1,D1)
+                \tkzDrawSegments[->](B2,D2)
+                \tkzDrawSegments[->](B3,D3)
+                \tkzDrawSegments[->](B4,D4)
+                \tkzDrawSegments[->](B5,D5)
+
+                \tkzDefPoint(5,+1){U1}
+                \tkzDefPoint(5,-1){U2}
+
+                \tkzInterLL(B1,C1)(U1,U2)
+                \tkzGetPoint{E1}
+                \tkzInterLL(B2,C2)(U1,U2)
+                \tkzGetPoint{E2}
+                \tkzInterLL(B3,C3)(U1,U2)
+                \tkzGetPoint{E3}
+                \tkzInterLL(B4,C4)(U1,U2)
+                \tkzGetPoint{E4}
+                \tkzInterLL(B5,C5)(U1,U2)
+                \tkzGetPoint{E5}
+
+                \tkzDrawSegments(D1,E1)
+                \tkzDrawSegments(D2,E2)
+                \tkzDrawSegments(D3,E3)
+                \tkzDrawSegments(D4,E4)
+                \tkzDrawSegments(D5,E5)
+
+                \tkzDefPoint(-2.0,-1.2){n1};
+                \tkzDefPoint(+2.5,-1.2){n2};
+
+                \tkzLabelPoint[below](n1){$n_1$}
+                \tkzLabelPoint[below](n2){$n_2$}
+            \end{tikzpicture}
+            \caption{当$s_2\rightarrow +\infty$的折射情况}
+        \end{center}
+    \end{figure}\\
+    在这种情况下我们定义左焦距$f_1$：
+    \setcounter{equation}{0}
+    \begin{align}
+        f_1=s_1
+    \end{align}\\
+    即当物距等于左焦距时，光会在右侧平行射出。\\[3mm]
+    依照条件代入可以推导左焦距$f_1$：\vspace{5pt}
+    \begin{align}
+        &\frac{n_1}{s_1}+\frac{n_2}{s_2}=\frac{n_2-n_1}{r}\\[5mm]
+        &\frac{n_1}{f_1}+\lim_{s_2\rightarrow\infty}\left(\frac{n_2}{s_2}\right)=\frac{n_2-n_1}{r}\\[5mm]
+        &\frac{n_1}{f_1}=\frac{n_2-n_1}{r}\\[5mm]
+        &f_1=\frac{n_1\cdot r}{n_2-n_1}
+    \end{align}\\
+    由此我们得到左焦距的计算公式：
+    \begin{large}
+        \begin{equation*}
+            f_1=\frac{n_1\cdot r}{n_2-n_1}
+        \end{equation*}
+    \end{large}
+
+\newpage
+
+    考虑当$s_1\rightarrow +\infty$时，此时光线从左侧平行射入。\\[3mm]
+    考虑以下示意图：
+    \begin{figure}[h]
+        \begin{center}
+            \begin{tikzpicture}[scale=1.0]
+                \tkzDefPoint(-4,0){O1}
+                \tkzDefPoint(+5,0){O2}
+
+                \tkzDefPoint(-5,0){O1X}
+                \tkzDefPoint(+6,0){O2X}
+
+                \tkzDefPoint(0,+1){P}
+                \tkzDefPoint(0,+0){Q}
+                \tkzDefPoint(0,-1){T}
+
+                \tkzDefPoint(2,0){C}
+                
+                \tkzDrawSegments(O1X,O2X)
+
+                \tkzDrawArc[delta=20,color=black](C,P)(T)
+
+                \tkzDefPoint(1,+0.70){A1}
+                \tkzDefPoint(1,+0.35){A2}
+                \tkzDefPoint(1,+0.00){A3}
+                \tkzDefPoint(1,-0.35){A4}
+                \tkzDefPoint(1,-0.70){A5}
+
+                \tkzDrawSegments(O2,A1)
+                \tkzDrawSegments(O2,A2)
+                \tkzDrawSegments(O2,A3)
+                \tkzDrawSegments(O2,A4)
+                \tkzDrawSegments(O2,A5)
+
+                \tkzInterLC(O2,A1)(C,P)
+                \tkzGetFirstPoint{B1}
+                \tkzInterLC(O2,A2)(C,P)
+                \tkzGetFirstPoint{B2}
+                \tkzInterLC(O2,A3)(C,P)
+                \tkzGetSecondPoint{B3}
+                \tkzInterLC(O2,A4)(C,P)
+                \tkzGetSecondPoint{B4}
+                \tkzInterLC(O2,A5)(C,P)
+                \tkzGetSecondPoint{B5}
+
+                \tkzDrawSegments[->](B1,A1)
+                \tkzDrawSegments[->](B2,A2)
+                \tkzDrawSegments[->](B3,A3)
+                \tkzDrawSegments[->](B4,A4)
+                \tkzDrawSegments[->](B5,A5)
+
+                \tkzDefShiftPoint[B1](-2,0){C1}
+                \tkzDefShiftPoint[B2](-2,0){C2}
+                \tkzDefShiftPoint[B3](-2,0){C3}
+                \tkzDefShiftPoint[B4](-2,0){C4}
+                \tkzDefShiftPoint[B5](-2,0){C5}
+
+                \tkzDefPoint(-1,+1){T1}
+                \tkzDefPoint(-1,-1){T2}
+
+                \tkzInterLL(B1,C1)(T1,T2)
+                \tkzGetPoint{D1}
+                \tkzInterLL(B2,C2)(T1,T2)
+                \tkzGetPoint{D2}
+                \tkzInterLL(B3,C3)(T1,T2)
+                \tkzGetPoint{D3}
+                \tkzInterLL(B4,C4)(T1,T2)
+                \tkzGetPoint{D4}
+                \tkzInterLL(B5,C5)(T1,T2)
+                \tkzGetPoint{D5}
+
+                \tkzDrawSegments(B1,D1)
+                \tkzDrawSegments(B2,D2)
+                \tkzDrawSegments(B3,D3)
+                \tkzDrawSegments(B4,D4)
+                \tkzDrawSegments(B5,D5)
+
+                \tkzDefPoint(-4,+1){U1}
+                \tkzDefPoint(-4,-1){U2}
+
+                \tkzInterLL(B1,C1)(U1,U2)
+                \tkzGetPoint{E1}
+                \tkzInterLL(B2,C2)(U1,U2)
+                \tkzGetPoint{E2}
+                \tkzInterLL(B3,C3)(U1,U2)
+                \tkzGetPoint{E3}
+                \tkzInterLL(B4,C4)(U1,U2)
+                \tkzGetPoint{E4}
+                \tkzInterLL(B5,C5)(U1,U2)
+                \tkzGetPoint{E5}
+
+                \tkzDrawSegments[->](E1,D1)
+                \tkzDrawSegments[->](E2,D2)
+                \tkzDrawSegments[->](E3,D3)
+                \tkzDrawSegments[->](E4,D4)
+                \tkzDrawSegments[->](E5,D5)
+
+                \tkzDefPoint(-2.0,-1.2){n1};
+                \tkzDefPoint(+2.5,-1.2){n2};
+
+                \tkzLabelPoint[below](n1){$n_1$}
+                \tkzLabelPoint[below](n2){$n_2$}
+            \end{tikzpicture}
+            \vspace{-60pt}
+            \caption{当$s_1\rightarrow +\infty$的折射情况}
+        \end{center}
+    \end{figure}\\
+    在这种情况下我们定义右焦距$f_2$：
+    \setcounter{equation}{0}
+    \begin{align}
+        f_2=s_2
+    \end{align}\\
+    即当像距等于右焦距时，光会在左侧平行射入。\\[3mm]
+    依照条件代入可以推导左焦距$f_2$：\vspace{5pt}
+    \begin{align}
+        &\frac{n_1}{s_1}+\frac{n_2}{s_2}=\frac{n_2-n_1}{r}\\[5mm]
+        &\frac{n_2}{f_2}+\lim_{s_1\rightarrow\infty}\left(\frac{n_1}{s_1}\right)=\frac{n_2-n_1}{r}\\[5mm]
+        &\frac{n_2}{f_2}=\frac{n_2-n_1}{r}\\[5mm]
+        &f_2=\frac{n_2\cdot r}{n_2-n_1}
+    \end{align}\\
+    由此我们得到左焦距的计算公式：
+    \begin{large}
+        \begin{equation*}
+            f_2=\frac{n_2\cdot r}{n_2-n_1}
+        \end{equation*}
+    \end{large}
+
+\newpage
+
+    对左焦距的计算公式变换可以得到：
+    \setcounter{equation}{0}
+    \begin{align}
+        &f_1=\frac{n_1\cdot r}{n_2-n_1}\\[5mm]
+        &\frac{1}{f_1}=\frac{n_2-n_1}{n_1\cdot r}\\[5mm]
+        &\frac{n_1}{f_1}=\frac{n_2-n_1}{r}
+    \end{align}\\
+    代入即可得到一组关系：
+    \begin{large}
+        \begin{equation*}
+            \frac{n_1}{s_1}+\frac{n_2}{s_2}=\frac{n_1}{f_1}
+        \end{equation*}
+    \end{large}\\
+    这组关系将球面的半径换为了左焦距，有利于实际使用。\\[16mm]
+    对右焦距的计算公式变换可以得到：
+    \begin{align}
+        &f_2=\frac{n_2\cdot r}{n_2-n_1}\\[5mm]
+        &\frac{1}{f_2}=\frac{n_2-n_1}{n_2\cdot r}\\[5mm]
+        &\frac{n_2}{f_2}=\frac{n_2-n_1}{r}
+    \end{align}\\
+    代入即可得到一组关系：
+    \begin{large}
+        \begin{equation*}
+            \frac{n_1}{s_1}+\frac{n_2}{s_2}=\frac{n_2}{f_2}
+        \end{equation*}
+    \end{large}\\
+    这组关系将球面的半径换为了右焦距，有利于实际使用。
+
+\newpage
+
+\subsubsection{双折射面的情况}
+    我们将要研究只有两个折射面的情况，其两侧为介质$n_1$，其中间为介质$n_2$。\\[3mm]
+    考虑以下示意图：
+    \begin{figure}[h]
+        \begin{center}
+            \begin{tikzpicture}[scale=1.2]
+                \tkzDefPoint(-4,0){O1}
+                \tkzDefPoint(+5,0){O2}
+
+                \tkzDefPoint(-5,0){O1X}
+                \tkzDefPoint(+6,0){O2X}
+
+                \tkzDefPoint(0,+1.5){P}
+                \tkzDefPoint(0,-1.5){T}
+
+                \tkzDefPoint(0,+0){Q}
+
+                \tkzDefPoint(1,0){C}
+                \tkzDefPoint(4,0){D} 
+                
+                \tkzDrawSegments(O1X,O2X)
+                \tkzDrawSegments(O1,P)
+                \tkzDrawSegments(O2,P)
+
+                \tkzDrawSegments(P,Q)
+
+                \tkzMarkRightAngle[scale=0.4](P,Q,C)
+                \tkzDrawArc[color=black](C,P)(T)
+                \tkzDrawArc[color=black](D,P)(T)
+
+                \tkzLabelSegments[above](O1,P){$s_1$}
+                \tkzLabelSegments[above](O2,P){$s_2$}
+                \tkzLabelSegments[right](P,Q){$h$}
+
+                \tkzLabelPoint[below](O1){$O_1$}
+                \tkzLabelPoint[below](O2){$O_2$}
+                \tkzLabelPoint[above left](P){$P$}
+                \tkzLabelPoint[below](Q){$Q$}
+
+                \tkzDefPoint(-0.802,0){T1}
+                \tkzDefPoint(-0.272,0){T2}
+
+                \tkzLabelSegments[above](T1,T2){$T$}
+                \tkzDrawSegments[<->](T1,T2)
+            
+                \tkzDefPoint(-2.5,-0.7){n1A};
+                \tkzDefPoint(+2.5,-0.7){n1B};
+                \tkzDefPoint(-0.38,-0.7){n2};
+
+                \tkzLabelPoint[below](n1A){$n_1$}
+                \tkzLabelPoint[below](n1B){$n_1$}
+                \tkzLabelPoint[below](n2){$n_2$}
+            \end{tikzpicture}
+            \caption{双折射曲面的情况}
+        \end{center}
+    \end{figure}\\
+    这种由两个折射曲面构成的光学器具称为透镜，通常由玻璃构成。\\[3mm]
+    透镜的左侧球面的半径记作$r_1$，若向左凸则为正，若向右凸则为负。\\[3mm]
+    透镜的右侧球面的半径记作$r_2$，若向左凸则为正，若向右凸则为负。\\[3mm]
+    为便于计算进行以下近似：只考虑折射曲面的间距非常小的情况，这样的透镜也被称为薄透镜。
 
 \newpage
 
